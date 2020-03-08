@@ -7,23 +7,17 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Git学习笔记 - Sokäch&#39;s Blog</title>
+<title>Tag: 转载 - Sokäch&#39;s Blog</title>
 
 
-    <meta name="description" content="git大概是每个程序员必须要掌握的工具之一">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Git学习笔记">
-<meta property="og:url" content="http://yoursite.com/2020/03/07/Git%E5%AD%A6%E4%B9%A0/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Sokäch&#39;s Blog">
+<meta property="og:url" content="http://yoursite.com/tags/%E8%BD%AC%E8%BD%BD/index.html">
 <meta property="og:site_name" content="Sokäch&#39;s Blog">
-<meta property="og:description" content="git大概是每个程序员必须要掌握的工具之一">
-<meta property="og:image" content="http://yoursite.com/images/biji.jpg">
-<meta property="article:published_time" content="2020-03-07T12:07:00.000Z">
-<meta property="article:modified_time" content="2020-03-07T13:43:14.203Z">
+<meta property="og:image" content="http://yoursite.com/images/og_image.png">
 <meta property="article:author" content="wsl">
-<meta property="article:tag" content="Git">
-<meta property="article:tag" content="软件构造">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/images/biji.jpg">
+<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
 
 
@@ -82,7 +76,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Git学习笔记" height="28">
+                <img src="/images/logo.svg" alt="Sokäch&#39;s Blog" height="28">
             
             </a>
         </div>
@@ -131,26 +125,37 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-6-tablet is-6-desktop is-9-widescreen has-order-2 column-main">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/tags">Tags</a></li>
+            <li class="is-active"><a href="#" aria-current="page">转载</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
+
+    
 <div class="card">
     
     <div class="card-image">
-        <span  class="image is-7by1">
-            <img class="thumbnail" src="/images/biji.jpg" alt="Git学习笔记">
-        </span>
+        <a href="/2020/03/08/icarus%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/" class="image is-7by1">
+            <img class="thumbnail" src="/images/biji.jpg" alt="icarus主题配置">
+        </a>
     </div>
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-03-07T12:07:00.000Z">2020-03-07</time>
+                <time class="level-item has-text-grey" datetime="2020-03-08T07:53:04.000Z">2020-03-08</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    4 minutes lesen (Über 600 Worte)
+                    11 minutes lesen (Über 1621 Worte)
                 </span>
                 
                 
@@ -159,105 +164,31 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                Git学习笔记
+                <a class="has-link-black-ter" href="/2020/03/08/icarus%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/">icarus主题配置</a>
             
         </h1>
         <div class="content">
-            <hr>
-<p>git大概是每个程序员必须要掌握的工具之一</p>
-<a id="more"></a>
-<!-- TOC -->
-
-<ul>
-<li><a href="#常用">常用</a></li>
-<li><a href="#版本回退">版本回退</a></li>
-<li><a href="#避免重复劳动">避免重复劳动</a></li>
-<li><a href="#分支">分支</a></li>
-<li><a href="#打包">打包</a></li>
-<li><a href="#本地与远程">本地与远程</a></li>
-</ul>
-<!-- /TOC -->
-
-<h3 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h3><p>git init ——初始化，创建git仓库<br>git add filename ——添加文件<br>git commit -m “日志说明” ——提交文件<br>git log / git log –pretty=oneline<br>git reset –hard commit_id ——回滚到指定版本<br>git reflog ——命令历史<br>git checkout – filename ——工作区撤销，与暂存区相同<br>git reset HEAD filename——暂存区file撤回到工作区<br>git rm filename ——删除文件</p>
-<h3 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h3><p>HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令git reset –soft/–mixed/–hard id<br>回退，用git log可以查看提交历史<br>重返未来，用git reflog查看命令历史</p>
-<h3 id="避免重复劳动"><a href="#避免重复劳动" class="headerlink" title="避免重复劳动"></a>避免重复劳动</h3><p>在master分支上修复的bug，想要合并到当前dev分支，可以用git cherry-pick commit命令，把bug提交的修改“复制”到当前分支</p>
-<h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><p>查看分支：git branch<br>创建分支：git branch <em>name</em><br>切换分支：git checkout <em>name*或者git switch *name</em><br>创建+切换分支：git checkout -b <em>name*或者git switch -c *name</em><br>合并某分支到当前分支：git merge <em>name</em><br>删除分支：git branch -d <em>name</em><br>分支合并图：git log –graph –pretty=oneline<br>–pretty=oneline（将每条信息放在一行）<br>###打包<br>git stash         打包现场<br>git stash list     查看stash<br>git stash pop        回到工作现场</p>
-<h3 id="本地与远程"><a href="#本地与远程" class="headerlink" title="本地与远程"></a>本地与远程</h3><p>关联一个远程库git remote add origin git@server-name:path/repo-name.git；<br>git push -u origin master第一次推送master分支的所有内容<br>git push origin master此后推送最新修改<br>从本地推送分支，使用git push origin branch-name，如果推送失败，先用git pull抓取远程的新提交；<br>在本地创建和远程分支对应的分支，使用git checkout -b branch-name origin/branch-name，本地和远程分支的名称最好一致；<br>建立本地分支和远程分支的关联，使用git branch –set-upstream branch-name origin/branch-name；<br>从远程抓取分支，使用git pull，如果有冲突，要先处理冲突。</p>
-
+            <p>本文转载自<br><a href="https://blog.csdn.net/Marvine/article/details/89816846">CSDN:Hexo+icarus主题配置</a><br><a href="https://blog.csdn.net/Fzidx/article/details/99185663">Hexo Icarus配置和美化升级</a></p>
         </div>
         
-        <div class="level is-size-7 is-uppercase">
+        
+        <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/Git/" rel="tag">Git</a>, <a class="has-link-grey -link" href="/tags/%E8%BD%AF%E4%BB%B6%E6%9E%84%E9%80%A0/" rel="tag">软件构造</a>
+                <a class="button is-size-7 is-light" href="/2020/03/08/icarus%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/#more">Mehr lesen</a>
                 </div>
             </div>
         </div>
         
         
-        
     </div>
 </div>
 
 
 
-<div class="card">
-    <div class="card-content">
-        <h3 class="menu-label has-text-centered">Gefällt Ihnen der Artikel? Unterstützen Sie den Autor mit</h3>
-        <div class="buttons is-centered">
-            
-                
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
-
-<div class="notification is-danger">
-    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                
-<div class="notification is-danger">
-    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-        </div>
-    </div>
-</div>
 
 
 
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/03/08/icarus%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">icarus主题配置</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/03/07/hello-world/">
-                <span class="level-item">Hello World</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
 
 
 </div>
@@ -266,9 +197,7 @@
 
 
 
-
-
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-3 column-left ">
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
     
         
 <div class="card widget">
@@ -518,7 +447,108 @@
     
 </div>
 
+
+
                 
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Letzte Einträge
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/03/08/icarus%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/biji.jpg" alt="icarus主题配置">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-08T07:53:04.000Z">2020-03-08</time></div>
+                    <a href="/2020/03/08/icarus%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/" class="title has-link-black-ter is-size-6 has-text-weight-normal">icarus主题配置</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/03/07/Git%E5%AD%A6%E4%B9%A0/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/biji.jpg" alt="Git学习笔记">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-07T12:07:00.000Z">2020-03-07</time></div>
+                    <a href="/2020/03/07/Git%E5%AD%A6%E4%B9%A0/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Git学习笔记</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/03/07/hello-world/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-07T06:28:43.500Z">2020-03-07</time></div>
+                    <a href="/2020/03/07/hello-world/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hello World</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archive
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
 
 
             </div>
@@ -530,7 +560,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Git学习笔记" height="28">
+                    <img src="/images/logo.svg" alt="Sokäch&#39;s Blog" height="28">
                 
                 </a>
                 <p class="is-size-7">
