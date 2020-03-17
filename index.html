@@ -140,7 +140,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    a minute read (About 185 words)
+                    a minute read (About 180 words)
                 </span>
                 
                 
@@ -153,19 +153,17 @@
             
         </h1>
         <div class="content">
-            <p>算法导论第四章分治的第一个例题：最大子数组问题<br>&lt;！–more–&gt;</p>
-<hr>
-<h4 id="O-n-2"><a href="#O-n-2" class="headerlink" title="$O(n^2)$"></a>$O(n^2)$</h4><p>暴力算法</p>
-<hr>
-<h4 id="O-nlogn"><a href="#O-nlogn" class="headerlink" title="$O(nlogn)$"></a>$O(nlogn)$</h4><p>分治算法<br>将数组<code>array[low..high]</code>分为<code>array[low..mid]</code>，<code>array[mid+1..high]</code><br>最大子数组<code>array[i..j]</code>所在位置必然在如下三种情况里：<br>1.完全位于<code>array[low..mid]</code><br>2.完全位于<code>array[mid+1..high]</code><br>3.跨越mid （<code>low&lt;i&lt;mid&lt;j&lt;high</code>)</p>
-<p>1,2为重复子问题<br>3即寻找i，j使<code>array[i..mid]</code>，<code>array[mid+1..j]</code>分别最大 ： O(n)级别</p>
-<p>递归方程：<br>$$T(n)=2*T(n/2)+O(n)$$<br>复杂度即$O(nlogn)$</p>
-<hr>
-<h4 id="O-n"><a href="#O-n" class="headerlink" title="$O(n)$"></a>$O(n)$</h4><p>线性算法<br>推荐一个非常棒的博客:full_moon_with_face:：<a href="https://blog.csdn.net/zj0395/article/details/76284342">最大子数组的和问题–线性算法</a></p>
-<hr>
-
+            <p>算法导论第四章分治的第一个例题：最大子数组问题</p>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2020/03/17/%E6%9C%80%E5%A4%A7%E5%AD%90%E6%95%B0%E7%BB%84%E9%97%AE%E9%A2%98/#more">Read More</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
