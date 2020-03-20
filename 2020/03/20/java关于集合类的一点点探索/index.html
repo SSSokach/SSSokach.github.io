@@ -7,23 +7,23 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>hexo学习笔记 - Sokäch&#39;s Blog</title>
+<title>java关于集合类的一点点探索 - Sokäch&#39;s Blog</title>
 
 
-    <meta name="description" content="用hexo+github搭建完了自己这个特别特别简陋的博客，这篇是最近学到的hexo和markdown的用法">
+    <meta name="description" content="对set集合的contains函数的运行机制有一点点小疑问以及探索">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo学习笔记">
-<meta property="og:url" content="http://yoursite.com/2020/03/07/hexo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:title" content="java关于集合类的一点点探索">
+<meta property="og:url" content="http://yoursite.com/2020/03/20/java%E5%85%B3%E4%BA%8E%E9%9B%86%E5%90%88%E7%B1%BB%E7%9A%84%E4%B8%80%E7%82%B9%E7%82%B9%E6%8E%A2%E7%B4%A2/index.html">
 <meta property="og:site_name" content="Sokäch&#39;s Blog">
-<meta property="og:description" content="用hexo+github搭建完了自己这个特别特别简陋的博客，这篇是最近学到的hexo和markdown的用法">
+<meta property="og:description" content="对set集合的contains函数的运行机制有一点点小疑问以及探索">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/images/biji.jpg">
-<meta property="article:published_time" content="2020-03-07T13:34:02.770Z">
-<meta property="article:modified_time" content="2020-03-13T03:05:32.378Z">
+<meta property="og:image" content="http://yoursite.com/images/java.jfif">
+<meta property="article:published_time" content="2020-03-20T02:21:54.000Z">
+<meta property="article:modified_time" content="2020-03-20T03:37:46.242Z">
 <meta property="article:author" content="wsl">
-<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/images/biji.jpg">
+<meta name="twitter:image" content="http://yoursite.com/images/java.jfif">
 
 
 
@@ -82,7 +82,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="hexo学习笔记" height="28">
+                <img src="/images/logo.svg" alt="java关于集合类的一点点探索" height="28">
             
             </a>
         </div>
@@ -136,7 +136,7 @@
     
     <div class="card-image">
         <span  class="image is-7by1">
-            <img class="thumbnail" src="/images/biji.jpg" alt="hexo学习笔记">
+            <img class="thumbnail" src="/images/java.jfif" alt="java关于集合类的一点点探索">
         </span>
     </div>
     
@@ -144,13 +144,13 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-03-07T13:34:02.770Z">2020-03-07</time>
+                <time class="level-item has-text-grey" datetime="2020-03-20T02:21:54.000Z">2020-03-20</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    3 minutes read (About 465 words)
+                    4 minutes read (About 616 words)
                 </span>
                 
                 
@@ -159,44 +159,36 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                hexo学习笔记
+                java关于集合类的一点点探索
             
         </h1>
         <div class="content">
-            <p>用hexo+github搭建完了自己这个特别特别简陋的博客，这篇是最近学到的hexo和markdown的用法</p>
+            <p>对set集合的contains函数的运行机制有一点点小疑问以及探索</p>
 <a id="more"></a>
 
-<!-- TOC -->
-
-<ul>
-<li><a href="#命令行">命令行</a></li>
-<li><a href="#插入图片">插入图片</a><pre><code>- [绝对路径](#绝对路径)
-- [相对路径](#相对路径)</code></pre></li>
-<li><a href="#标签插件tag-plugins">标签插件（Tag Plugins）</a></li>
-<li><a href="#模板设置">模板设置</a></li>
-</ul>
-<!-- /TOC -->
-
-<h2 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h2><p><code>hexo new draft name</code>—-创建名为name的草稿<br><code>hexo publish draft name</code>—-移动到_post里/发表</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//保证了a，b指向两个ID不同，内容相同的字符串</span></span><br><span class="line">String a=<span class="keyword">new</span> String(<span class="string">"v1"</span>);</span><br><span class="line">String b=<span class="keyword">new</span> String(<span class="string">"v1"</span>);</span><br><span class="line">HashSet&lt;String&gt; set=<span class="keyword">new</span> HashSet&lt;String&gt;();</span><br><span class="line">set.add(a);</span><br><span class="line">System.out.println(set.contains(b));</span><br><span class="line"></span><br><span class="line"><span class="comment">//结果</span></span><br><span class="line"><span class="keyword">true</span></span><br></pre></td></tr></table></figure>
+<p>最开始以为是和equals方法有关系，于是做了一个小测试</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//简单的car类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">car</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//main</span></span><br><span class="line">HashSet&lt;car&gt; s=<span class="keyword">new</span> HashSet&lt;car&gt;();</span><br><span class="line">car a=<span class="keyword">new</span> car(<span class="string">"car1"</span>);</span><br><span class="line">car b=<span class="keyword">new</span> car(<span class="string">"car1"</span>);</span><br><span class="line">s.add(a);</span><br><span class="line">System.out.println(s.contains(b));</span><br><span class="line"><span class="comment">//结果</span></span><br><span class="line"><span class="keyword">false</span></span><br></pre></td></tr></table></figure>
+<p>结果显然是false<br>于是重写了car的equals方法（右键自动生成的。。。）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (<span class="keyword">this</span> == obj)</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">	<span class="keyword">if</span> (obj == <span class="keyword">null</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">	<span class="keyword">if</span> (getClass() != obj.getClass())</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">	car other = (car) obj;</span><br><span class="line">	<span class="keyword">if</span> (name == <span class="keyword">null</span>) &#123;</span><br><span class="line">		<span class="keyword">if</span> (other.name != <span class="keyword">null</span>)</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (!name.equals(other.name))</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是运行main函数仍然显示false</p>
 <hr>
-<h2 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h2><h4 id="绝对路径"><a href="#绝对路径" class="headerlink" title="绝对路径"></a>绝对路径</h4><p>当Hexo项目中只用到少量图片时，可以将图片统一放在source/images文件夹中，通过markdown语法访问它们。</p>
-<pre><code>![](/images/image.jpg)</code></pre><h4 id="相对路径"><a href="#相对路径" class="headerlink" title="相对路径"></a>相对路径</h4><p>图片除了可以放在统一的images文件夹中，还可以放在文章自己的目录中。文章的目录可以通过配置_config.yml来生成。</p>
-<blockquote>
-<p>post_asset_folder: true</p>
-</blockquote>
-<p>之后，执行命令$ hexo new post_name，在source/_posts中会生成文章post_name.md和同名文件夹post_name。将图片资源放在post_name中，文章就可以使用相对路径引用图片资源了。</p>
-<pre><code>![](image.jpg)</code></pre><hr>
-<h2 id="标签插件（Tag-Plugins）"><a href="#标签插件（Tag-Plugins）" class="headerlink" title="标签插件（Tag Plugins）"></a>标签插件（Tag Plugins）</h2><p>标签插件和 Front-matter 中的标签不同，它们是用于在文章中快速插入特定内容的插件。</p>
-<p><code>&lt;!--more--&gt;</code><br>——–read more </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% blockquote %&#125;</span><br><span class="line">内容</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
-<p>——–普通blockquote</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% blockquote 书名, 作者 %&#125;</span><br><span class="line">内容</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
-<p>——–引用书本的blockquote</p>
-<h2 id="模板设置"><a href="#模板设置" class="headerlink" title="模板设置"></a>模板设置</h2><p>当我们使用命令 hexo new “title” 创建文章时，Hexo 会根据 /scaffolds/post.md 对新文章进行初始化</p>
-<p>换言之，/scaffolds/post.md 就是新文章的 模板，所以我们可以修改它来适应自己的写作习惯</p>
-<p>一个简单的示例如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">tags: </span><br><span class="line">categories:</span><br></pre></td></tr></table></figure>
-<p><strong>属性和属性值之间必须有一个空格，否则会解析错误</strong></p>
+<h2 id="看源码"><a href="#看源码" class="headerlink" title="看源码"></a>看源码</h2><p>一层一层的找往里找</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">transient</span> HashMap&lt;E,Object&gt; map;</span><br><span class="line"><span class="comment">//HashSet的contains方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> map.containsKey(o);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>（害！HashSet其实是用HashMap实现的啊）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//HashMap</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">containsKey</span><span class="params">(Object key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> getNode(hash(key), key) != <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">hash</span><span class="params">(Object key)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> h;</span><br><span class="line">    <span class="keyword">return</span> (key == <span class="keyword">null</span>) ? <span class="number">0</span> : (h = key.hashCode()) ^ (h &gt;&gt;&gt; <span class="number">16</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">final</span> Node&lt;K,V&gt; <span class="title">getNode</span><span class="params">(<span class="keyword">int</span> hash, Object key)</span> </span>&#123;</span><br><span class="line">    Node&lt;K,V&gt;[] tab; Node&lt;K,V&gt; first, e; <span class="keyword">int</span> n; K k;</span><br><span class="line">    <span class="keyword">if</span> ((tab = table) != <span class="keyword">null</span> &amp;&amp; (n = tab.length) &gt; <span class="number">0</span> &amp;&amp;</span><br><span class="line">        (first = tab[(n - <span class="number">1</span>) &amp; hash]) != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (first.hash == hash &amp;&amp; <span class="comment">// always check firstnode</span></span><br><span class="line">            ((k = first.key) == key || (key != <span class="keyword">null</span> &amp;&amp;key.equals(k))))</span><br><span class="line">            <span class="keyword">return</span> first;</span><br><span class="line">        <span class="keyword">if</span> ((e = first.next) != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (first <span class="keyword">instanceof</span> TreeNode)</span><br><span class="line">                <span class="keyword">return</span> ((TreeNode&lt;K,V&gt;)first).getTreeNod(hash, key);</span><br><span class="line">            <span class="keyword">do</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (e.hash == hash &amp;&amp;</span><br><span class="line">                    ((k = e.key) == key || (key != <span class="keyword">null</span> &amp; key.equals(k))))</span><br><span class="line">                    <span class="keyword">return</span> e;</span><br><span class="line">            &#125; <span class="keyword">while</span> ((e = e.next) != <span class="keyword">null</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最终getNode方法里面找到了答案(4,5行)<br>1.判断两个对象hashcode是否相同,<br>2.判断两个对象是否“相同”  （a==b||a.equals(b))</p>
+<hr>
+<h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><p>回头再来看car类<br>尝试看一下两个对象的哈希值是否一样</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">car a=<span class="keyword">new</span> car(<span class="string">"car1"</span>);</span><br><span class="line">car b=<span class="keyword">new</span> car(<span class="string">"car1"</span>);</span><br><span class="line">System.out.println(b.hashCode());</span><br><span class="line">System.out.println(a.hashCode());</span><br><span class="line"><span class="comment">//结果</span></span><br><span class="line"><span class="number">1311053135</span></span><br><span class="line"><span class="number">2018699554</span></span><br></pre></td></tr></table></figure>
+<p>所以问题就在此，重写一下hashcode方法试试(之前已经重写了equals方法)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">final</span> <span class="keyword">int</span> prime = <span class="number">31</span>;</span><br><span class="line">	<span class="keyword">int</span> result = <span class="number">1</span>;</span><br><span class="line">	result = prime * result + ((name == <span class="keyword">null</span>) ? <span class="number">0</span> : name.hashCode());</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>再来测试car类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(b.hashCode());</span><br><span class="line">System.out.println(a.hashCode());</span><br><span class="line">s.add(a);</span><br><span class="line">System.out.println(s.contains(b));</span><br><span class="line"><span class="comment">//结果</span></span><br><span class="line"><span class="number">3046140</span></span><br><span class="line"><span class="number">3046140</span></span><br><span class="line"><span class="keyword">true</span></span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>HashSet的contains判断两对象相同的方法：<br>1.判断两个对象hashcode是否相同,<br>2.判断两个对象是否“相同”  （a==b||a.equals(b))</p>
+<p>所以！为正在使用的类重写hashCode和equals方法即可。</p>
 
         </div>
         
@@ -204,7 +196,7 @@
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/hexo/" rel="tag">hexo</a>
+                    <a class="has-link-grey -link" href="/tags/java/" rel="tag">java</a>
                 </div>
             </div>
         </div>
@@ -255,17 +247,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/03/08/icarus%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">icarus主题配置</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/03/07/Git%E5%AD%A6%E4%B9%A0/">
-                <span class="level-item">Git学习笔记</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/03/17/%E6%9C%80%E5%A4%A7%E5%AD%90%E6%95%B0%E7%BB%84%E9%97%AE%E9%A2%98/">
+                <span class="level-item">最大子数组问题</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -596,7 +581,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="hexo学习笔记" height="28">
+                    <img src="/images/logo.svg" alt="java关于集合类的一点点探索" height="28">
                 
                 </a>
                 <p class="is-size-7">
