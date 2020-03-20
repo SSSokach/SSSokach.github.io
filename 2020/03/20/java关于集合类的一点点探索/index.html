@@ -19,7 +19,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/images/java.jfif">
 <meta property="article:published_time" content="2020-03-20T02:21:54.000Z">
-<meta property="article:modified_time" content="2020-03-20T03:37:46.242Z">
+<meta property="article:modified_time" content="2020-03-20T13:26:50.958Z">
 <meta property="article:author" content="wsl">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -150,7 +150,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    4 minutes read (About 616 words)
+                    4 minutes read (About 652 words)
                 </span>
                 
                 
@@ -166,8 +166,10 @@
             <p>对set集合的contains函数的运行机制有一点点小疑问以及探索</p>
 <a id="more"></a>
 
+
+
 <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//保证了a，b指向两个ID不同，内容相同的字符串</span></span><br><span class="line">String a=<span class="keyword">new</span> String(<span class="string">"v1"</span>);</span><br><span class="line">String b=<span class="keyword">new</span> String(<span class="string">"v1"</span>);</span><br><span class="line">HashSet&lt;String&gt; set=<span class="keyword">new</span> HashSet&lt;String&gt;();</span><br><span class="line">set.add(a);</span><br><span class="line">System.out.println(set.contains(b));</span><br><span class="line"></span><br><span class="line"><span class="comment">//结果</span></span><br><span class="line"><span class="keyword">true</span></span><br></pre></td></tr></table></figure>
-<p>最开始以为是和equals方法有关系，于是做了一个小测试</p>
+<p>a,b两个String类指向的对象，id不同，内容相同，contains是如何判断这两个对象相同的？<br>最开始以为是和equals方法有关系，于是做了一个小测试</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//简单的car类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">car</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//main</span></span><br><span class="line">HashSet&lt;car&gt; s=<span class="keyword">new</span> HashSet&lt;car&gt;();</span><br><span class="line">car a=<span class="keyword">new</span> car(<span class="string">"car1"</span>);</span><br><span class="line">car b=<span class="keyword">new</span> car(<span class="string">"car1"</span>);</span><br><span class="line">s.add(a);</span><br><span class="line">System.out.println(s.contains(b));</span><br><span class="line"><span class="comment">//结果</span></span><br><span class="line"><span class="keyword">false</span></span><br></pre></td></tr></table></figure>
 <p>结果显然是false<br>于是重写了car的equals方法（右键自动生成的。。。）</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (<span class="keyword">this</span> == obj)</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">	<span class="keyword">if</span> (obj == <span class="keyword">null</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">	<span class="keyword">if</span> (getClass() != obj.getClass())</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">	car other = (car) obj;</span><br><span class="line">	<span class="keyword">if</span> (name == <span class="keyword">null</span>) &#123;</span><br><span class="line">		<span class="keyword">if</span> (other.name != <span class="keyword">null</span>)</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (!name.equals(other.name))</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
