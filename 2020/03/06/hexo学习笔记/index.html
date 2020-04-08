@@ -7,18 +7,23 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Tag: 算法 - Sokäch&#39;s Blog</title>
+<title>hexo学习笔记 - Sokäch&#39;s Blog</title>
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Sokäch&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/index.html">
+    <meta name="description" content="用hexo+github搭建完了自己这个特别特别简陋的博客，这篇是最近学到的hexo和markdown的用法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo学习笔记">
+<meta property="og:url" content="http://yoursite.com/2020/03/06/hexo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Sokäch&#39;s Blog">
+<meta property="og:description" content="用hexo+github搭建完了自己这个特别特别简陋的博客，这篇是最近学到的hexo和markdown的用法">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/images/og_image.png">
+<meta property="og:image" content="http://yoursite.com/images/biji.jpg">
+<meta property="article:published_time" content="2020-03-06T07:53:04.000Z">
+<meta property="article:modified_time" content="2020-04-08T12:07:40.380Z">
 <meta property="article:author" content="wsl">
+<meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
+<meta name="twitter:image" content="http://yoursite.com/images/biji.jpg">
 
 
 
@@ -77,7 +82,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Sokäch&#39;s Blog" height="28">
+                <img src="/images/logo.svg" alt="hexo学习笔记" height="28">
             
             </a>
         </div>
@@ -126,31 +131,26 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">Tags</a></li>
-            <li class="is-active"><a href="#" aria-current="page">算法</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    
+                <div class="column is-6-tablet is-6-desktop is-9-widescreen has-order-2 column-main">
 <div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="/images/biji.jpg" alt="hexo学习笔记">
+        </span>
+    </div>
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-03-17T01:54:18.000Z">2020-03-17</time>
+                <time class="level-item has-text-grey" datetime="2020-03-06T07:53:04.000Z">2020-03-06</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    a minute read (About 180 words)
+                    3 minutes read (About 465 words)
                 </span>
                 
                 
@@ -159,21 +159,56 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2020/03/17/%E6%9C%80%E5%A4%A7%E5%AD%90%E6%95%B0%E7%BB%84%E9%97%AE%E9%A2%98/">最大子数组问题</a>
+                hexo学习笔记
             
         </h1>
         <div class="content">
-            <p>算法导论第四章分治的第一个例题：最大子数组问题</p>
+            <p>用hexo+github搭建完了自己这个特别特别简陋的博客，这篇是最近学到的hexo和markdown的用法</p>
+<a id="more"></a>
+
+<!-- TOC -->
+
+<ul>
+<li><a href="#命令行">命令行</a></li>
+<li><a href="#插入图片">插入图片</a><pre><code>- [绝对路径](#绝对路径)
+- [相对路径](#相对路径)</code></pre></li>
+<li><a href="#标签插件tag-plugins">标签插件（Tag Plugins）</a></li>
+<li><a href="#模板设置">模板设置</a></li>
+</ul>
+<!-- /TOC -->
+
+<h2 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h2><p><code>hexo new draft name</code>—-创建名为name的草稿<br><code>hexo publish draft name</code>—-移动到_post里/发表</p>
+<hr>
+<h2 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h2><h4 id="绝对路径"><a href="#绝对路径" class="headerlink" title="绝对路径"></a>绝对路径</h4><p>当Hexo项目中只用到少量图片时，可以将图片统一放在source/images文件夹中，通过markdown语法访问它们。</p>
+<pre><code>![](/images/image.jpg)</code></pre><h4 id="相对路径"><a href="#相对路径" class="headerlink" title="相对路径"></a>相对路径</h4><p>图片除了可以放在统一的images文件夹中，还可以放在文章自己的目录中。文章的目录可以通过配置_config.yml来生成。</p>
+<blockquote>
+<p>post_asset_folder: true</p>
+</blockquote>
+<p>之后，执行命令$ hexo new post_name，在source/_posts中会生成文章post_name.md和同名文件夹post_name。将图片资源放在post_name中，文章就可以使用相对路径引用图片资源了。</p>
+<pre><code>![](image.jpg)</code></pre><hr>
+<h2 id="标签插件（Tag-Plugins）"><a href="#标签插件（Tag-Plugins）" class="headerlink" title="标签插件（Tag Plugins）"></a>标签插件（Tag Plugins）</h2><p>标签插件和 Front-matter 中的标签不同，它们是用于在文章中快速插入特定内容的插件。</p>
+<p><code>&lt;!--more--&gt;</code><br>——–read more </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% blockquote %&#125;</span><br><span class="line">内容</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
+<p>——–普通blockquote</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% blockquote 书名, 作者 %&#125;</span><br><span class="line">内容</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
+<p>——–引用书本的blockquote</p>
+<h2 id="模板设置"><a href="#模板设置" class="headerlink" title="模板设置"></a>模板设置</h2><p>当我们使用命令 hexo new “title” 创建文章时，Hexo 会根据 /scaffolds/post.md 对新文章进行初始化</p>
+<p>换言之，/scaffolds/post.md 就是新文章的 模板，所以我们可以修改它来适应自己的写作习惯</p>
+<p>一个简单的示例如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">tags: </span><br><span class="line">categories:</span><br></pre></td></tr></table></figure>
+<p><strong>属性和属性值之间必须有一个空格，否则会解析错误</strong></p>
+
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2020/03/17/%E6%9C%80%E5%A4%A7%E5%AD%90%E6%95%B0%E7%BB%84%E9%97%AE%E9%A2%98/#more">Read More</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/hexo/" rel="tag">hexo</a>
                 </div>
             </div>
         </div>
+        
         
         
     </div>
@@ -181,9 +216,55 @@
 
 
 
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+        </div>
+    </div>
+</div>
 
 
 
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/03/07/hello-world/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Hello World</span>
+            </a>
+        </div>
+        
+        
+    </div>
+</div>
 
 
 </div>
@@ -192,7 +273,9 @@
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-3 column-left ">
     
         
 <div class="card widget">
@@ -505,157 +588,7 @@
     
 </div>
 
-
-
                 
-
-
-
-
-<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
-    
-        <div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            Recent
-        </h3>
-        
-        <article class="media">
-            
-            <a href="/2020/04/08/Python%E9%80%9A%E8%BF%87%E5%AF%B9%E8%B1%A1%E5%90%8D%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%88%E5%AF%B9%E8%B1%A1%E5%90%8D%E5%90%8E%E5%8A%A0%E6%8B%AC%E5%8F%B7%E5%92%8C%E5%8F%82%E6%95%B0%EF%BC%89/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/python.jpg" alt="Python通过对象名调用方法（对象名后加括号和参数）">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-08T12:09:21.000Z">2020-04-08</time></div>
-                    <a href="/2020/04/08/Python%E9%80%9A%E8%BF%87%E5%AF%B9%E8%B1%A1%E5%90%8D%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%88%E5%AF%B9%E8%B1%A1%E5%90%8D%E5%90%8E%E5%8A%A0%E6%8B%AC%E5%8F%B7%E5%92%8C%E5%8F%82%E6%95%B0%EF%BC%89/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Python通过对象名调用方法（对象名后加括号和参数）</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2020/03/20/java%E5%85%B3%E4%BA%8E%E9%9B%86%E5%90%88%E7%B1%BB%E7%9A%84%E4%B8%80%E7%82%B9%E7%82%B9%E6%8E%A2%E7%B4%A2/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/java.jfif" alt="java关于集合类的一点点探索">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-20T02:21:54.000Z">2020-03-20</time></div>
-                    <a href="/2020/03/20/java%E5%85%B3%E4%BA%8E%E9%9B%86%E5%90%88%E7%B1%BB%E7%9A%84%E4%B8%80%E7%82%B9%E7%82%B9%E6%8E%A2%E7%B4%A2/" class="title has-link-black-ter is-size-6 has-text-weight-normal">java关于集合类的一点点探索</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2020/03/17/%E6%9C%80%E5%A4%A7%E5%AD%90%E6%95%B0%E7%BB%84%E9%97%AE%E9%A2%98/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="最大子数组问题">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-17T01:54:18.000Z">2020-03-17</time></div>
-                    <a href="/2020/03/17/%E6%9C%80%E5%A4%A7%E5%AD%90%E6%95%B0%E7%BB%84%E9%97%AE%E9%A2%98/" class="title has-link-black-ter is-size-6 has-text-weight-normal">最大子数组问题</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2020/03/13/java%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/java.jfif" alt="java文件读写">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-13T03:09:20.000Z">2020-03-13</time></div>
-                    <a href="/2020/03/13/java%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/" class="title has-link-black-ter is-size-6 has-text-weight-normal">java文件读写</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2020/03/08/java%E5%8F%8D%E5%B0%84+junit/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/java.jfif" alt="java反射与junit的结合应用">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-08T13:20:43.000Z">2020-03-08</time></div>
-                    <a href="/2020/03/08/java%E5%8F%8D%E5%B0%84+junit/" class="title has-link-black-ter is-size-6 has-text-weight-normal">java反射与junit的结合应用</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-    </div>
-</div>
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-        <h3 class="menu-label">
-            Archives
-        </h3>
-        <ul class="menu-list">
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2020/04/">
-                <span class="level-start">
-                    <span class="level-item">April 2020</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2020/03/">
-                <span class="level-start">
-                    <span class="level-item">March 2020</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">8</span>
-                </span>
-            </a>
-        </li>
-        
-        </ul>
-        </div>
-    </div>
-</div>
-    
-    
-</div>
-
 
 
             </div>
@@ -667,7 +600,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Sokäch&#39;s Blog" height="28">
+                    <img src="/images/logo.svg" alt="hexo学习笔记" height="28">
                 
                 </a>
                 <p class="is-size-7">
