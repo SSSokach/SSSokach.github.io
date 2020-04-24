@@ -7,18 +7,23 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Tag: hexo - Sokäch&#39;s Blog</title>
+<title>java父类子类初始化顺序 - Sokäch&#39;s Blog</title>
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Sokäch&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/hexo/index.html">
+    <meta name="description" content="由Cannot reference &#39;FlightScheduleApp.sources&#39; before supertype constructor has been called引发的思考">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java父类子类初始化顺序">
+<meta property="og:url" content="http://yoursite.com/2020/04/24/java%E7%88%B6%E7%B1%BB%E5%AD%90%E7%B1%BB%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F/index.html">
 <meta property="og:site_name" content="Sokäch&#39;s Blog">
+<meta property="og:description" content="由Cannot reference &#39;FlightScheduleApp.sources&#39; before supertype constructor has been called引发的思考">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/images/og_image.png">
+<meta property="og:image" content="http://yoursite.com/images/java.jfif">
+<meta property="article:published_time" content="2020-04-24T02:36:46.000Z">
+<meta property="article:modified_time" content="2020-04-24T03:25:45.047Z">
 <meta property="article:author" content="wsl">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
+<meta name="twitter:image" content="http://yoursite.com/images/java.jfif">
 
 
 
@@ -77,7 +82,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Sokäch&#39;s Blog" height="28">
+                <img src="/images/logo.svg" alt="java父类子类初始化顺序" height="28">
             
             </a>
         </div>
@@ -126,125 +131,115 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+                <div class="column is-6-tablet is-6-desktop is-9-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="/images/java.jfif" alt="java父类子类初始化顺序">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-04-24T02:36:46.000Z">2020-04-24</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 minutes read (About 491 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                java父类子类初始化顺序
+            
+        </h1>
+        <div class="content">
+            <p>由<code>Cannot reference &#39;FlightScheduleApp.sources&#39; before supertype constructor has been called</code>引发的思考</p>
+<a id="more"></a>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseApp</span>&lt;<span class="title">S</span>,<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> List&lt;S&gt; sources;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> List&lt;Location&gt; locations;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> List&lt;E&gt; entries;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BaseApp</span><span class="params">(List&lt;S&gt; sources, List&lt;Location&gt; locations, List&lt;E&gt; entries)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.sources = sources;</span><br><span class="line">        <span class="keyword">this</span>.locations = locations;</span><br><span class="line">        <span class="keyword">this</span>.entries = entries;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FlightScheduleApp</span> <span class="keyword">extends</span> <span class="title">BaseApp</span>&lt;<span class="title">Plane</span>, <span class="title">FlightEntry</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> List&lt;Plane&gt; sources=<span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> List&lt;Location&gt; locations=<span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> List&lt;FlightEntry&gt; entries=<span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">FlightScheduleApp</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//Cannot reference 'FlightScheduleApp.sources' before supertype constructor has been called</span></span><br><span class="line">        <span class="keyword">super</span>(sources,locations,entries);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>意思是在父类构函数初始化之前不能引用这个变量。</p>
+<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>在子类这个变量前加上startic修饰符时，就不再报错。</p>
+<h3 id="猜想验证"><a href="#猜想验证" class="headerlink" title="猜想验证"></a>猜想验证</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 父类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Base</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> String sVar = getString(<span class="string">"父类静态变量初始化"</span>);</span><br><span class="line">    <span class="keyword">public</span> String <span class="keyword">var</span> = getString(<span class="string">"父类非静态变量初始化"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Base</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"父类构造函数 start"</span>);</span><br><span class="line">        draw(<span class="string">"父类调用draw方法"</span>);<span class="comment">//会调用子类覆盖后的方法，这里是null</span></span><br><span class="line">        System.out.println(<span class="string">"父类构造函数 end"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">static</span> String <span class="title">getString</span><span class="params">(String base)</span> </span>&#123;</span><br><span class="line">        System.out.println(base);</span><br><span class="line">        <span class="keyword">return</span> base;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">draw</span><span class="params">(String string)</span> </span>&#123;</span><br><span class="line">        System.out.println(string);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 子类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SubClass</span> <span class="keyword">extends</span> <span class="title">Base</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="keyword">var</span> = getString(<span class="string">"子类非静态变量初始化"</span>);</span><br><span class="line">    <span class="keyword">private</span> String subVar = getString(<span class="string">"子类私有变量初始化"</span>);</span><br><span class="line">    <span class="keyword">static</span> String superVar = getString(<span class="string">"子类静态变量初始化"</span>);</span><br><span class="line"></span><br><span class="line">    SubClass() &#123;</span><br><span class="line">        System.out.println(<span class="string">"子类构造函数start"</span>);</span><br><span class="line">        draw(<span class="string">"子类调用draw方法"</span>);</span><br><span class="line">        System.out.println(<span class="string">"子类构造函数end"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">draw</span><span class="params">(String string)</span> </span>&#123;</span><br><span class="line">        System.out.println(string + subVar);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> SubClass();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">父类静态变量初始化</span><br><span class="line">子类静态变量初始化   &lt;-----</span><br><span class="line">父类非静态变量初始化   &lt;-----</span><br><span class="line">父类构造函数 start</span><br><span class="line">父类调用draw方法null</span><br><span class="line">父类构造函数 end</span><br><span class="line">子类非静态变量初始化   &lt;-----</span><br><span class="line">子类私有变量初始化</span><br><span class="line">子类构造函数start</span><br><span class="line">子类调用draw方法子类初始化私有变量</span><br><span class="line">子类构造函数end</span><br></pre></td></tr></table></figure>
+<p>可以发现，父类构造函数初始化早于子类非静态变量的初始化，晚于子类静态变量的初始化,所以当我们需要把变量改为<code>static</code></p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/java/" rel="tag">java</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
     <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">Tags</a></li>
-            <li class="is-active"><a href="#" aria-current="page">hexo</a></li>
-        </ul>
-        </nav>
-    </div>
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
 </div>
 
-    
-<div class="card">
-    
-    <div class="card-image">
-        <a href="/2020/03/08/icarus%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/" class="image is-7by1">
-            <img class="thumbnail" src="/images/biji.jpg" alt="icarus主题配置">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-03-08T07:53:04.000Z">2020-03-08</time>
                 
                 
-                <span class="level-item has-text-grey">
-                    
-                    
-                    11 minutes read (About 1678 words)
-                </span>
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
                 
                 
-            </div>
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
+                
         </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2020/03/08/icarus%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/">icarus主题配置</a>
-            
-        </h1>
-        <div class="content">
-            <p>本文转载自<br><a href="https://blog.csdn.net/Marvine/article/details/89816846">CSDN:Hexo+icarus主题配置</a><br><a href="https://blog.csdn.net/Fzidx/article/details/99185663">Hexo Icarus配置和美化升级</a></p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2020/03/08/icarus%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
-        
     </div>
 </div>
 
 
 
-
-
-
-
-
-    
-<div class="card">
-    
-    <div class="card-image">
-        <a href="/2020/03/06/hexo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="image is-7by1">
-            <img class="thumbnail" src="/images/biji.jpg" alt="hexo学习笔记">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-03-06T07:53:04.000Z">2020-03-06</time>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    3 minutes read (About 465 words)
-                </span>
-                
-                
-            </div>
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/04/08/Python%E9%80%9A%E8%BF%87%E5%AF%B9%E8%B1%A1%E5%90%8D%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%88%E5%AF%B9%E8%B1%A1%E5%90%8D%E5%90%8E%E5%8A%A0%E6%8B%AC%E5%8F%B7%E5%92%8C%E5%8F%82%E6%95%B0%EF%BC%89/">
+                <span class="level-item">Python通过对象名调用方法（对象名后加括号和参数）</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
         </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2020/03/06/hexo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">hexo学习笔记</a>
-            
-        </h1>
-        <div class="content">
-            <p>用hexo+github搭建完了自己这个特别特别简陋的博客，这篇是最近学到的hexo和markdown的用法</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2020/03/06/hexo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
         
     </div>
 </div>
-
-
-
-
-
-
 
 
 </div>
@@ -253,7 +248,9 @@
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-3 column-left ">
     
         
 <div class="card widget">
@@ -566,157 +563,7 @@
     
 </div>
 
-
-
                 
-
-
-
-
-<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
-    
-        <div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            Recent
-        </h3>
-        
-        <article class="media">
-            
-            <a href="/2020/04/24/java%E7%88%B6%E7%B1%BB%E5%AD%90%E7%B1%BB%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/java.jfif" alt="java父类子类初始化顺序">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-24T02:36:46.000Z">2020-04-24</time></div>
-                    <a href="/2020/04/24/java%E7%88%B6%E7%B1%BB%E5%AD%90%E7%B1%BB%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F/" class="title has-link-black-ter is-size-6 has-text-weight-normal">java父类子类初始化顺序</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2020/04/08/Python%E9%80%9A%E8%BF%87%E5%AF%B9%E8%B1%A1%E5%90%8D%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%88%E5%AF%B9%E8%B1%A1%E5%90%8D%E5%90%8E%E5%8A%A0%E6%8B%AC%E5%8F%B7%E5%92%8C%E5%8F%82%E6%95%B0%EF%BC%89/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/python.jpg" alt="Python通过对象名调用方法（对象名后加括号和参数）">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-08T12:09:21.000Z">2020-04-08</time></div>
-                    <a href="/2020/04/08/Python%E9%80%9A%E8%BF%87%E5%AF%B9%E8%B1%A1%E5%90%8D%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%88%E5%AF%B9%E8%B1%A1%E5%90%8D%E5%90%8E%E5%8A%A0%E6%8B%AC%E5%8F%B7%E5%92%8C%E5%8F%82%E6%95%B0%EF%BC%89/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Python通过对象名调用方法（对象名后加括号和参数）</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2020/03/20/java%E5%85%B3%E4%BA%8E%E9%9B%86%E5%90%88%E7%B1%BB%E7%9A%84%E4%B8%80%E7%82%B9%E7%82%B9%E6%8E%A2%E7%B4%A2/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/java.jfif" alt="java关于集合类的一点点探索">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-20T02:21:54.000Z">2020-03-20</time></div>
-                    <a href="/2020/03/20/java%E5%85%B3%E4%BA%8E%E9%9B%86%E5%90%88%E7%B1%BB%E7%9A%84%E4%B8%80%E7%82%B9%E7%82%B9%E6%8E%A2%E7%B4%A2/" class="title has-link-black-ter is-size-6 has-text-weight-normal">java关于集合类的一点点探索</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2020/03/17/%E6%9C%80%E5%A4%A7%E5%AD%90%E6%95%B0%E7%BB%84%E9%97%AE%E9%A2%98/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="最大子数组问题">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-17T01:54:18.000Z">2020-03-17</time></div>
-                    <a href="/2020/03/17/%E6%9C%80%E5%A4%A7%E5%AD%90%E6%95%B0%E7%BB%84%E9%97%AE%E9%A2%98/" class="title has-link-black-ter is-size-6 has-text-weight-normal">最大子数组问题</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2020/03/13/java%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/java.jfif" alt="java文件读写">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-13T03:09:20.000Z">2020-03-13</time></div>
-                    <a href="/2020/03/13/java%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/" class="title has-link-black-ter is-size-6 has-text-weight-normal">java文件读写</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-    </div>
-</div>
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-        <h3 class="menu-label">
-            Archives
-        </h3>
-        <ul class="menu-list">
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2020/04/">
-                <span class="level-start">
-                    <span class="level-item">April 2020</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">2</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2020/03/">
-                <span class="level-start">
-                    <span class="level-item">March 2020</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">8</span>
-                </span>
-            </a>
-        </li>
-        
-        </ul>
-        </div>
-    </div>
-</div>
-    
-    
-</div>
-
 
 
             </div>
@@ -728,7 +575,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Sokäch&#39;s Blog" height="28">
+                    <img src="/images/logo.svg" alt="java父类子类初始化顺序" height="28">
                 
                 </a>
                 <p class="is-size-7">
