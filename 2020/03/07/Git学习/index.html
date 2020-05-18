@@ -17,13 +17,13 @@
 <meta property="og:site_name" content="Sokäch&#39;s Blog">
 <meta property="og:description" content="git大概是每个程序员必须要掌握的工具之一">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/images/biji.jpg">
+<meta property="og:image" content="http://yoursite.com/images/og_image.png">
 <meta property="article:published_time" content="2020-03-07T12:07:00.000Z">
-<meta property="article:modified_time" content="2020-03-13T03:05:27.775Z">
+<meta property="article:modified_time" content="2020-05-18T03:06:06.487Z">
 <meta property="article:author" content="wsl">
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/images/biji.jpg">
+<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
 
 
@@ -134,12 +134,6 @@
                 <div class="column is-6-tablet is-6-desktop is-9-widescreen has-order-2 column-main">
 <div class="card">
     
-    <div class="card-image">
-        <span  class="image is-7by1">
-            <img class="thumbnail" src="/images/biji.jpg" alt="Git学习笔记">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
@@ -150,7 +144,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    4 minutes read (About 600 words)
+                    4 minutes read (About 674 words)
                 </span>
                 
                 
@@ -166,6 +160,7 @@
             <hr>
 <p>git大概是每个程序员必须要掌握的工具之一</p>
 <a id="more"></a>
+
 <!-- TOC -->
 
 <ul>
@@ -178,10 +173,12 @@
 </ul>
 <!-- /TOC -->
 
+
 <h3 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h3><p>git init ——初始化，创建git仓库<br>git add filename ——添加文件<br>git commit -m “日志说明” ——提交文件<br>git log / git log –pretty=oneline<br>git reset –hard commit_id ——回滚到指定版本<br>git reflog ——命令历史<br>git checkout – filename ——工作区撤销，与暂存区相同<br>git reset HEAD filename——暂存区file撤回到工作区<br>git rm filename ——删除文件</p>
 <h3 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h3><p>HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令git reset –soft/–mixed/–hard id<br>回退，用git log可以查看提交历史<br>重返未来，用git reflog查看命令历史</p>
 <h3 id="避免重复劳动"><a href="#避免重复劳动" class="headerlink" title="避免重复劳动"></a>避免重复劳动</h3><p>在master分支上修复的bug，想要合并到当前dev分支，可以用git cherry-pick commit命令，把bug提交的修改“复制”到当前分支</p>
-<h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><p>查看分支：git branch<br>创建分支：git branch <em>name</em><br>切换分支：git checkout <em>name*或者git switch *name</em><br>创建+切换分支：git checkout -b <em>name*或者git switch -c *name</em><br>合并某分支到当前分支：git merge <em>name</em><br>删除分支：git branch -d <em>name</em><br>分支合并图：git log –graph –pretty=oneline<br>–pretty=oneline（将每条信息放在一行）<br>###打包<br>git stash         打包现场<br>git stash list     查看stash<br>git stash pop        回到工作现场</p>
+<h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><p>查看分支：git branch<br>创建分支：git branch <em>name</em><br>切换分支：git checkout <em>name*或者git switch *name</em><br>创建+切换分支：git checkout -b <em>name*或者git switch -c *name</em><br>合并某分支到当前分支：git merge <em>name</em><br>删除分支：git branch -d <em>name</em></p>
+<p>查看分支图<br>git log –graph –decorate –oneline –simplify-by-decoration –all<br>说明：<br>–decorate 标记会让<em>git log</em>显示每个commit的引用(如:分支、tag等)<br>–oneline 一行显示<br>–simplify-by-decoration 只显示被branch或tag引用的commit<br>–all 表示显示所有的branch，这里也可以选择，比如我指向显示分支ABC的关系，则将–all替换为branchA branchB branchC###打包<br>git stash         打包现场<br>git stash list     查看stash<br>git stash pop        回到工作现场</p>
 <h3 id="本地与远程"><a href="#本地与远程" class="headerlink" title="本地与远程"></a>本地与远程</h3><p>关联一个远程库git remote add origin git@server-name:path/repo-name.git；<br>git push -u origin master第一次推送master分支的所有内容<br>git push origin master此后推送最新修改<br>从本地推送分支，使用git push origin branch-name，如果推送失败，先用git pull抓取远程的新提交；<br>在本地创建和远程分支对应的分支，使用git checkout -b branch-name origin/branch-name，本地和远程分支的名称最好一致；<br>建立本地分支和远程分支的关联，使用git branch –set-upstream branch-name origin/branch-name；<br>从远程抓取分支，使用git pull，如果有冲突，要先处理冲突。</p>
 
         </div>
@@ -389,7 +386,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/java/">
                         <span class="tag">java</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 

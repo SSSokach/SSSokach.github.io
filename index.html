@@ -134,13 +134,13 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-05-07T12:27:43.088Z">2020-05-07</time>
+                <time class="level-item has-text-grey" datetime="2020-05-07T12:07:00.000Z">2020-05-07</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    10 minutes read (About 1446 words)
+                    12 minutes read (About 1729 words)
                 </span>
                 
                 
@@ -153,17 +153,232 @@
             
         </h1>
         <div class="content">
-            <h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2>
+            <a id="more"></a>
+
+<!-- TOC -->
+
+<ul>
+<li><a href="#1-正则表达式">.1. 正则表达式</a><ul>
+<li><a href="#11-非打印字符">.1.1. 非打印字符</a></li>
+<li><a href="#12-特殊符">.1.2. 特殊符</a></li>
+<li><a href="#13-限定符">.1.3. 限定符</a></li>
+<li><a href="#14-定位符">.1.4. 定位符</a></li>
+<li><a href="#15-高级">.1.5. 高级</a></li>
+<li><a href="#16-在java中的特殊点">.1.6. 在java中的特殊点</a></li>
+<li><a href="#17-常用表达式">.1.7. 常用表达式</a></li>
+<li><a href="#18-两个例子">.1.8. 两个例子</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+
+
+
+<h3 id="1-1-非打印字符"><a href="#1-1-非打印字符" class="headerlink" title=".1.1. 非打印字符"></a>.1.1. 非打印字符</h3><table>
+<thead>
+<tr>
+<th>特别字符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\f</td>
+<td>匹配一个换页符。等价于 \x0c 和 \cL。</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>匹配一个换行符。等价于 \x0a 和 \cJ。</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>匹配一个回车符。等价于 \x0d 和 \cM。</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>匹配任何空白字符，包括空格、制表符、换页符等等。等价于<code>[ \f\n\r\t\v]</code>。注意 Unicode 正则表达式会匹配全角空格符。</td>
+</tr>
+<tr>
+<td>\S</td>
+<td>匹配任何非空白字符。等价于 <code>[^ \f\n\r\t\v]</code>。</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>匹配一个制表符。等价于 \x09 和 \cI。</td>
+</tr>
+<tr>
+<td>\v</td>
+<td>匹配一个垂直制表符。等价于 \x0b 和 \cK。</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>匹配字母或数字或下划线或汉字 等价于 <code>[^A-Za-z0-9_]</code></td>
+</tr>
+<tr>
+<td>\d</td>
+<td>匹配数字</td>
+</tr>
+<tr>
+<td>\D</td>
+<td>匹配非数字</td>
+</tr>
+</tbody></table>
+<h3 id="1-2-特殊符"><a href="#1-2-特殊符" class="headerlink" title=".1.2. 特殊符"></a>.1.2. 特殊符</h3><table>
+<thead>
+<tr>
+<th>符号</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>.</td>
+<td>除\n以外任意字符</td>
+</tr>
+<tr>
+<td>^</td>
+<td>当该符号在方括号表达式中使用时，表示不接受该方括号表达式中的字符集合</td>
+</tr>
+<tr>
+<td>|</td>
+<td>二选一</td>
+</tr>
+</tbody></table>
+<h3 id="1-3-限定符"><a href="#1-3-限定符" class="headerlink" title=".1.3. 限定符"></a>.1.3. 限定符</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">*</span><br><span class="line"></span><br><span class="line">+</span><br><span class="line"></span><br><span class="line">？</span><br><span class="line"></span><br><span class="line">&#123;n&#125;</span><br><span class="line"></span><br><span class="line">&#123;n,&#125;</span><br><span class="line"></span><br><span class="line">&#123;n,m&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中<code>* +</code>为贪婪的,会尽可能多的匹配字符</p>
+<p>例:  匹配<code>&lt;h1&gt;不啦不啦不啦&lt;/h1&gt;</code></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th>匹配结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&lt;.*&gt;</td>
+<td>贪婪</td>
+<td><h1>不啦不啦不啦</h1></td>
+</tr>
+<tr>
+<td>&lt;.*?&gt;</td>
+<td>非贪婪</td>
+<td><h1></td>
+</tr>
+</tbody></table>
+<h3 id="1-4-定位符"><a href="#1-4-定位符" class="headerlink" title=".1.4. 定位符"></a>.1.4. 定位符</h3><table>
+<thead>
+<tr>
+<th>字符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>^</td>
+<td>匹配输入字符串开始的位置。如果设置了 RegExp 对象的 Multiline 属性，^ 还会与 \n 或 \r 之后的位置匹配。</td>
+</tr>
+<tr>
+<td>$</td>
+<td>匹配输入字符串结尾的位置。如果设置了 RegExp 对象的 Multiline 属性，$ 还会与 \n 或 \r 之前的位置匹配。</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>匹配一个单词边界，即字与空格间的位置。</td>
+</tr>
+<tr>
+<td>\B</td>
+<td>非单词边界匹配。</td>
+</tr>
+</tbody></table>
+<p><strong>注</strong>:若要匹配一行文本开始处的文本，请在正则表达式的开始使用 <strong>^</strong> 字符。不要将 <strong>^</strong> 的这种用法与中括号表达式内的用法混淆。</p>
+<p>若要匹配一行文本的结束处的文本，请在正则表达式的结束处使用 <strong>$</strong> 字符。</p>
+<p><strong>例</strong>  </p>
+<p><code>Chapter RegExp</code></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>匹配章节标题</td>
+<td><code>^Chapter [1-9][0-9]{0,1}$</code></td>
+</tr>
+<tr>
+<td>匹配单词开头</td>
+<td><code>\bCha</code></td>
+</tr>
+<tr>
+<td>匹配结尾</td>
+<td><code>ter\b</code></td>
+</tr>
+<tr>
+<td>匹配中间字符</td>
+<td><code>\Bapt</code>   但无法匹配<code>apter</code>(开头)</td>
+</tr>
+</tbody></table>
+<h3 id="1-5-高级"><a href="#1-5-高级" class="headerlink" title=".1.5. 高级"></a>.1.5. 高级</h3><table>
+<thead>
+<tr>
+<th align="left">字符</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">(pattern)</td>
+<td align="left">匹配 pattern 并获取这一匹配。所获取的匹配可以从产生的 Matches 集合得到，在VBScript 中使用 SubMatches 集合，在JScript 中则使用 $0…$9 属性。要匹配圆括号字符，请使用 ‘(‘ 或 ‘)‘。</td>
+</tr>
+<tr>
+<td align="left">(?:pattern)</td>
+<td align="left">匹配 pattern 但不获取匹配结果，也就是说这是一个非获取匹配，不进行存储供以后使用。这在使用 “或” 字符 (|) 来组合一个模式的各个部分是很有用。例如，<code>industr(?:y|ies)</code> 就是一个比 <code>industry|industries</code>更简略的表达式。</td>
+</tr>
+<tr>
+<td align="left">(?=pattern)</td>
+<td align="left">正向肯定预查（look ahead positive assert），在任何匹配pattern的字符串开始处匹配查找字符串。这是一个非获取匹配，也就是说，该匹配不需要获取供以后使用。例如，<code>Windows(?=95|98|NT|2000)</code>能匹配<code>Windows2000</code>中的<code>Windows</code>，但不能匹配<code>Windows3.1</code>中的<code>Windows</code>。预查不消耗字符，也就是说，在一个匹配发生后，在最后一次匹配之后立即开始下一次匹配的搜索，而不是从包含预查的字符之后开始。</td>
+</tr>
+<tr>
+<td align="left">(?!pattern)</td>
+<td align="left">正向否定预查(negative assert)，在任何不匹配pattern的字符串开始处匹配查找字符串。这是一个非获取匹配，也就是说，该匹配不需要获取供以后使用。例如<code>Windows(?!95|98|NT|2000)</code>能匹配<code>Windows3.1</code>中的<code>Windows</code>，但不能匹配<code>Windows2000</code>中的<code>Windows</code>。预查不消耗字符，也就是说，在一个匹配发生后，在最后一次匹配之后立即开始下一次匹配的搜索，而不是从包含预查的字符之后开始。</td>
+</tr>
+<tr>
+<td align="left">(?&lt;=pattern)</td>
+<td align="left">反向(look behind)肯定预查，与正向肯定预查类似，只是方向相反。例如，”`(?&lt;=95</td>
+</tr>
+<tr>
+<td align="left">(?&lt;!pattern)</td>
+<td align="left">反向否定预查，与正向否定预查类似，只是方向相反。例如”(?”能匹配”<code>3.1Windows</code>“中的”<code>Windows</code>“，但不能匹配”<code>2000Windows</code>“中的”<code>Windows</code>“。</td>
+</tr>
+</tbody></table>
+<h3 id="1-6-在java中的特殊点"><a href="#1-6-在java中的特殊点" class="headerlink" title=".1.6. 在java中的特殊点"></a>.1.6. 在java中的特殊点</h3><p>在其他语言中（如Perl），<code>\\</code> 表示：<strong>我想要在正则表达式中插入一个普通的（字面上的）反斜杠，请不要给它任何特殊的意义。</strong></p>
+<p>在 Java 中，<code>\\</code> 表示：<strong>我要插入一个正则表达式的反斜线，所以其后的字符具有特殊的意义。</strong></p>
+<p>所以，在其他的语言中（如Perl），一个反斜杠<code>\</code> 就足以具有转义的作用，而在 Java 中正则表达式中则需要有两个反斜杠才能被解析为其他语言中的转义作用。也可以简单的理解在 Java 的正则表达式中，两个<code>\\</code> 代表其他语言中的一个<code>\</code>，这也就是为什么表示一位数字的正则表达式是 <code>\\d</code>，而表示一个普通的反斜杠是 <code>\\\\</code>。</p>
+<h3 id="1-7-常用表达式"><a href="#1-7-常用表达式" class="headerlink" title=".1.7. 常用表达式"></a>.1.7. 常用表达式</h3><p>匹配中文字符:</p>
+<p><code>System.out.println(Pattern.matches(&quot;[\u4e00-\u9fa5]&quot;, &quot;好&quot;));</code></p>
+<p>匹配Email地址</p>
+<p><code>System.err.println(Pattern.matches(&quot;\\w[-\\w.+]*@([A-Za-z0-9][A-Za-z0-9]+\\.)+[A-Za-z]{2,14}&quot;, &quot;hello2020@qq.com&quot;));</code></p>
+<p>m-n 位的数字</p>
+<p><code>System.out.println(Pattern.matches(&quot;^\\d{1,3}$&quot;, &quot;123&quot;));</code></p>
+<p>密码必须由字母和数字组成，且长度要在6-12位之间</p>
+<p><code>System.out.println(Pattern.matches(&quot;^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,12}$&quot;, &quot;123hello456&quot;));</code></p>
+<p>匹配时分秒</p>
+<p><code>System.out.println(Pattern.matches(&quot;([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]&quot;, &quot;11:10:11&quot;));</code></p>
+<p>IP地址格式</p>
+<p><code>System.out.println(Pattern.matches(&quot;((2(5[0-5]|[0-4]\\d))|[0-1]?\\d{1,2})(\\.((2(5[0-5]|[0-4]\\d))|[0-1]?\\d{1,2})){3}&quot;, &quot;192.168.21.37&quot;));</code></p>
+<p>网址匹配包含http、https、ftp协议</p>
+<p><code>System.out.println(Pattern.matches(&quot;^(https?|ftp)://[-a-zA-Z0-9+&amp;@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&amp;@#/%=~_|]&quot;, &quot;http://www.bdqn.cn/&quot;));</code></p>
+<h3 id="1-8-两个例子"><a href="#1-8-两个例子" class="headerlink" title=".1.8. 两个例子"></a>.1.8. 两个例子</h3><p>匹配手机号</p>
+<p><img src="https://i.loli.net/2020/05/07/HOSsbvIz7it9GBL.jpg" alt="1"></p>
+<p>捕获组定义：把多个字符当一个单独单元进行处理的方法，它通过对括号内的字符分组来创建。</p>
+<p>捕获组是通过从左至右计算其开括号来编号。例如，在表达式((A)(B(C)))，有四个这样的组：</p>
+<p>((A)(B(C)))</p>
+<p>(A)</p>
+<p>(B(C))</p>
+<p>(C)</p>
+<p>可以通过调用 matcher 对象的 groupCount 方法来查看表达式有多少个分组。groupCount 方法返回一个 int 值，表示matcher对象当前有多个捕获组。另外还有一个特殊的组（group(0)），它总是代表整个表达式。该组不包括在 groupCount 的返回值中。</p>
+<p><img src="https://i.loli.net/2020/05/08/41ikJYgutMd37sf.jpg" alt="2"></p>
+
         </div>
         
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2020/05/07/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/#more">Read More</a>
-                </div>
-            </div>
-        </div>
         
         
     </div>
@@ -189,7 +404,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    a few seconds read (About 25 words)
+                    a few seconds read (About 12 words)
                 </span>
                 
                 
@@ -202,7 +417,7 @@
             
         </h1>
         <div class="content">
-            <h3 id="试一试自动上传到图床的功能"><a href="#试一试自动上传到图床的功能" class="headerlink" title="试一试自动上传到图床的功能"></a>试一试自动上传到图床的功能</h3>
+            <h3 id=""><a href="#" class="headerlink" title=""></a></h3>
         </div>
         
         
@@ -460,7 +675,7 @@ a = model(b)     # 用对象去调用方法????????</code></pre><p>小朋友你�
                 <span class="level-item has-text-grey">
                     
                     
-                    3 minutes read (About 501 words)
+                    3 minutes read (About 518 words)
                 </span>
                 
                 
@@ -609,12 +824,6 @@ a = model(b)     # 用对象去调用方法????????</code></pre><p>小朋友你�
     
 <div class="card">
     
-    <div class="card-image">
-        <a href="/2020/03/07/Git%E5%AD%A6%E4%B9%A0/" class="image is-7by1">
-            <img class="thumbnail" src="/images/biji.jpg" alt="Git学习笔记">
-        </a>
-    </div>
-    
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
@@ -625,7 +834,7 @@ a = model(b)     # 用对象去调用方法????????</code></pre><p>小朋友你�
                 <span class="level-item has-text-grey">
                     
                     
-                    4 minutes read (About 600 words)
+                    4 minutes read (About 674 words)
                 </span>
                 
                 
@@ -808,7 +1017,7 @@ a = model(b)     # 用对象去调用方法????????</code></pre><p>小朋友你�
                 <div class="control">
                     <a class="tags has-addons" href="/tags/java/">
                         <span class="tag">java</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 
