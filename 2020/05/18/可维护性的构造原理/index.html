@@ -7,20 +7,21 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>试一试自动上传到图床的功能 - Sokäch&#39;s Blog</title>
+<title>可维护性的构造原理 - Sokäch&#39;s Blog</title>
 
 
-    <meta name="description" content="try">
+    <meta name="description" content="SOLID 原则提供了五条指导思想，如果我们遵从它们的话， 将可以显著的提升我们软件可维护性。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="试一试自动上传到图床的功能">
-<meta property="og:url" content="http://yoursite.com/2020/05/07/%E8%AF%95%E4%B8%80%E8%AF%95%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0%E5%88%B0%E5%9B%BE%E5%BA%8A%E7%9A%84%E5%8A%9F%E8%83%BD/index.html">
+<meta property="og:title" content="可维护性的构造原理">
+<meta property="og:url" content="http://yoursite.com/2020/05/18/%E5%8F%AF%E7%BB%B4%E6%8A%A4%E6%80%A7%E7%9A%84%E6%9E%84%E9%80%A0%E5%8E%9F%E7%90%86/index.html">
 <meta property="og:site_name" content="Sokäch&#39;s Blog">
-<meta property="og:description" content="try">
+<meta property="og:description" content="SOLID 原则提供了五条指导思想，如果我们遵从它们的话， 将可以显著的提升我们软件可维护性。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
-<meta property="article:published_time" content="2020-05-07T01:56:33.282Z">
-<meta property="article:modified_time" content="2020-05-18T03:20:28.996Z">
+<meta property="article:published_time" content="2020-05-18T02:59:47.000Z">
+<meta property="article:modified_time" content="2020-05-19T06:59:05.535Z">
 <meta property="article:author" content="wsl">
+<meta property="article:tag" content="构造原理">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
@@ -81,7 +82,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="试一试自动上传到图床的功能" height="28">
+                <img src="/images/logo.svg" alt="可维护性的构造原理" height="28">
             
             </a>
         </div>
@@ -137,13 +138,13 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-05-07T01:56:33.282Z">2020-05-07</time>
+                <time class="level-item has-text-grey" datetime="2020-05-18T02:59:47.000Z">2020-05-18</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    a few seconds read (About 13 words)
+                    11 minutes read (About 1585 words)
                 </span>
                 
                 
@@ -152,17 +153,146 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                试一试自动上传到图床的功能
+                可维护性的构造原理
             
         </h1>
         <div class="content">
-            <p>try</p>
+            <p>SOLID 原则提供了五条指导思想，如果我们遵从它们的话， 将可以显著的提升我们软件可维护性。</p>
 <a id="more"></a>
 
 
 
-<p><img src="https://i.loli.net/2020/05/07/2zSkg1OqxMFtmAv.png" alt="屏幕截图"></p>
+<h2 id="SRP-单一责任原则-The-Single-Responsibility-Principle"><a href="#SRP-单一责任原则-The-Single-Responsibility-Principle" class="headerlink" title="SRP 单一责任原则(The Single Responsibility Principle)"></a>SRP 单一责任原则(The Single Responsibility Principle)</h2><ol>
+<li><p>单一职责原则（SRP）声明：“引起类变化的因素永远不要多余一个”。这意味着你需要设计你的类，使得每个类都只有一个目的。这并不意味着每个类应该只有一个方法，而是说类中所有的方法都要与该类的主要功能相关。那些有多个职责的类，应该被分成新的类。</p>
+<p>  —- One class, one responsibility</p>
+</li>
+<li><p>SRP是最简单的原则，却是最难做好的原则。</p>
+</li>
+</ol>
+<p>来个反例：<img src="https://i.loli.net/2020/05/18/o4AqWyBxt6abKlO.png" alt="图1 SRP反例"></p>
+<h2 id="OCP-开放封闭原则-The-Open-Closed-Principle"><a href="#OCP-开放封闭原则-The-Open-Closed-Principle" class="headerlink" title="OCP 开放封闭原则(The Open Closed Principle)"></a>OCP 开放封闭原则(The Open Closed Principle)</h2><ol>
+<li><p>软件实体应该是：</p>
+<p> 对扩展开放<br> 对修改封闭</p>
+</li>
+<li><p>这个原则是诸多面向对象编程原则中最抽象、最难理解的一个。</p>
+</li>
+<li><p>关键解决方案：抽象技术。 使用继承和组合来改变类的行为。</p>
+</li>
+</ol>
+<p>第一个栗子：</p>
+<p><img src="https://i.loli.net/2020/05/19/HMlbcEqzZvURIoa.png" alt="图2 OCP例子"></p>
+<p>第二个例子：以书店销售书籍为例</p>
+<p>书籍接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IBook</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getPrice</span><span class="params">()</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getAuthor</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>小说类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NovelBook</span> <span class="keyword">implements</span> <span class="title">IBook</span></span>&#123;</span><br><span class="line">   <span class="keyword">private</span> String name;</span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">int</span> price;</span><br><span class="line">   <span class="keyword">private</span> String author;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">NovelBook</span><span class="params">(String name,<span class="keyword">int</span> price,String author)</span></span>&#123;</span><br><span class="line">     <span class="keyword">this</span>.name = name;</span><br><span class="line">     <span class="keyword">this</span>.price = price;</span><br><span class="line">     <span class="keyword">this</span>.author = author;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">getAutor</span><span class="params">()</span></span>&#123;</span><br><span class="line">     <span class="keyword">return</span> <span class="keyword">this</span>.author;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span></span>&#123;</span><br><span class="line">     <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">   &#125;  </span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getPrice</span><span class="params">()</span></span>&#123;</span><br><span class="line">     <span class="keyword">return</span> <span class="keyword">this</span>.price;</span><br><span class="line">   &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>客户端</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Client</span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">Strings[] args</span>)</span>&#123;</span><br><span class="line">     IBook novel = <span class="keyword">new</span> NovelBook(<span class="string">"深入理解计算机系统"</span>,<span class="number">100</span>,<span class="string">"CMU"</span>);</span><br><span class="line">     System.<span class="keyword">out</span>.println(<span class="string">"书籍名字："</span>+novel.getName()+<span class="string">"书籍作者："</span>+novel.getAuthor()+<span class="string">"书籍价格："</span>+novel.getPrice());</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接下来，到了世界读书日，书店打折，需要做出改变。有一下几种修改方法：</p>
+<ul>
+<li><p>修改接口</p>
+<p><del>IBook里添加方法getOffPrice()</del> （接口应该是稳定且可靠，不应该经常发生改变）</p>
+</li>
+<li><p>修改实现类</p>
+<p><del>NovelBook里将getPrice()方法修改为打折价格</del> （我们如果getPrice()方法中只需要读取书籍的打折前的价格呢？）<br><del>NovelBook里再增加getOffPrice()方法</del> （DIP原则（后文会讲到）要求尽量用接口定义变量，只在具体实现类里新增方法，用接口定义的变量无法使用这个方法）</p>
+</li>
+<li><p>实现拓展类</p>
+<p>增加一个OffNovelBook类继承NovelBook，重写getPrice()方法，修改为打折价格</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OffNovelBook</span> <span class="keyword">extends</span> <span class="title">NovelBook</span></span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">OffNovelBook</span><span class="params">(String name,<span class="keyword">int</span> price,String author)</span></span>&#123;</span><br><span class="line">      <span class="keyword">super</span>(name,price,author);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">//覆写价格方法</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getPrice</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.price * <span class="number">0.9</span>;</span><br><span class="line">     &#125;     </span><br><span class="line">   &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="LSP-里氏替换原则-The-Liskov-Substitution-Principle"><a href="#LSP-里氏替换原则-The-Liskov-Substitution-Principle" class="headerlink" title="LSP 里氏替换原则(The Liskov Substitution Principle)"></a>LSP 里氏替换原则(The Liskov Substitution Principle)</h2><ol>
+<li><p>两种定义：</p>
+<ul>
+<li>如果对每一个类型为S的对象o1，都有类型为T的对象o2，使得以T定义的所有程序P在所有的对象o1都代换为o2，程序P的行为没有发生变化，那么类型S是类型T的子类型。</li>
+<li>所有引用基类的地方必须透明的使用其子类的对象。（只要父类能出现的地方子类也可以出现，而且替换为子类不会产生任何错误或异常，但是反过来就不行，有子类出现的地方，父类未必就能适应。）</li>
+</ul>
+</li>
+<li><p>里氏替换原则的规范</p>
+<p>LSP为良好的继承定义了规范：</p>
+<ul>
+<li><strong>子类必须完全实现父类的方法</strong></li>
+<li><strong>子类可以有自己的个性</strong></li>
+<li><strong>覆盖或实现父类的方法时输入参数可以被放大（反协变）（java会将此认作方法重载）</strong></li>
+<li><strong>覆盖或实现父类的方法时输出结果可以被缩小（协变）</strong></li>
+</ul>
+</li>
+</ol>
+<h2 id="ISP-接口分离原则-The-Interface-Segregation-cPrinciple"><a href="#ISP-接口分离原则-The-Interface-Segregation-cPrinciple" class="headerlink" title="ISP 接口分离原则(The Interface Segregation cPrinciple)"></a>ISP 接口分离原则(The Interface Segregation cPrinciple)</h2><ol>
+<li><p>两种定义：</p>
+<ul>
+<li><p>Clients should not be forced to depend upon interfaces that they don’t use. 客户端不应该依赖它不需用的接口。</p>
+</li>
+<li><p>The dependency of one class to another one should depend on the smallest possible interface。类间的依赖关系应该建立在最小的接口上。</p>
+</li>
+</ul>
+</li>
+<li><p>理解：</p>
+<ul>
+<li><strong>建立单一接口</strong> ，不要建立庞大臃肿的接口，尽量细化接口，接口中的方法尽量少。也就是说，我们要为各个类建立专用的接口，而不要试图去建立一个很庞大的接口供所有依赖它的类去调用。</li>
+<li><strong>依赖几个专用的接口</strong>要比依赖一个综合的接口：系统的灵活性更高，可维护性更好</li>
+</ul>
+</li>
+<li><p>区别一下单一职责原则和接口分离原则：</p>
+<ul>
+<li>单一职责原则注重的是职责；接口隔离原则注重对接口依赖的隔离。</li>
+<li>单一职责原则主要是约束类；接口隔离原则主要约束接口</li>
+</ul>
+</li>
+</ol>
+<h2 id="DIP-依赖转置原则-The-Dependency-Inversion-Principle"><a href="#DIP-依赖转置原则-The-Dependency-Inversion-Principle" class="headerlink" title="DIP 依赖转置原则(The Dependency Inversion Principle)"></a>DIP 依赖转置原则(The Dependency Inversion Principle)</h2><ol>
+<li><p>定义：</p>
+<ul>
+<li>High level modules should not depend upon low level modules,Both should depend upon abstractions.高层模块不应该依赖低层模块，两者都应该依赖抽象</li>
+<li>Abstractions should not depend upon details.抽象不应该依赖细节</li>
+<li>Details should depend upon abstracts.细节应该依赖抽象</li>
+</ul>
+<p>在java中，抽象就是接口和抽象类，细节就是实现类，翻译过来就是：</p>
+<ul>
+<li><p>模块间的依赖通过抽象发生，实现类之间不发生直接的依赖关系，其依赖关系是通过接口或抽象类产生的。</p>
+</li>
+<li><p>接口或抽象类不依赖实现类</p>
+</li>
+<li><p>实现类依赖接口或抽象类</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>   <strong>一句话概括就是——“面向接口编程”</strong></p>
+<ol start="2">
+<li><p>前人经验：</p>
+<ul>
+<li><p>每个类尽量都有接口或者抽象类，或者抽象类和接口两都具备</p>
+</li>
+<li><p>变量的表面类型尽量是接口或者抽象类</p>
+</li>
+<li><p>任何类都不应该从具体类派生</p>
+</li>
+<li><p>尽量不要覆写基类的方法</p>
+</li>
+<li><p>如果基类是一个抽象类，而这个方法已经实现了，子类尽量不要覆写。类间依赖的是抽象，覆写了抽象方法，对依赖的稳定性会有一定的影响。</p>
+</li>
+<li><p>结合里氏替换原则使用</p>
+</li>
+</ul>
+</li>
+</ol>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/%E6%9E%84%E9%80%A0%E5%8E%9F%E7%90%86/" rel="tag">构造原理</a>
+                </div>
+            </div>
         </div>
         
         
@@ -211,17 +341,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/05/07/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">正则表达式</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/04/24/java%E7%88%B6%E7%B1%BB%E5%AD%90%E7%B1%BB%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F/">
-                <span class="level-item">java父类子类初始化顺序</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/05/07/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+                <span class="level-item">正则表达式</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -297,7 +420,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            5
+                            6
                         </p>
                     </a>
                 </div>
@@ -371,6 +494,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%9E%84%E9%80%A0%E5%8E%9F%E7%90%86/">
+                        <span class="tag">构造原理</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/%E7%AE%97%E6%B3%95/">
                         <span class="tag">算法</span>
                         <span class="tag is-grey">1</span>
@@ -390,7 +520,7 @@
         <h3 class="menu-label">
             Tag Cloud
         </h3>
-        <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a>
+        <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/%E6%9E%84%E9%80%A0%E5%8E%9F%E7%90%86/" style="font-size: 10px;">构造原理</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a>
     </div>
 </div>
         
@@ -456,7 +586,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="试一试自动上传到图床的功能" height="28">
+                    <img src="/images/logo.svg" alt="可维护性的构造原理" height="28">
                 
                 </a>
                 <p class="is-size-7">
