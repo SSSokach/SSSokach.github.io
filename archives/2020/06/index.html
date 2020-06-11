@@ -7,23 +7,18 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Python通过对象名调用方法（对象名后加括号和参数） - Sokäch&#39;s Blog</title>
+<title>Archives: 2020/6 - Sokäch&#39;s Blog</title>
 
 
-    <meta name="description" content="提前一周写完软件构造实验，hhh，打算把python捡一捡然后网上一个例子给看懵了 model &#x3D; MNIST()  # 声明一个对象 a &#x3D; model(b)     # 用对象去调用方法????????小朋友你是不是有很多问号？">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Python通过对象名调用方法（对象名后加括号和参数）">
-<meta property="og:url" content="http://yoursite.com/2020/04/08/Python%E9%80%9A%E8%BF%87%E5%AF%B9%E8%B1%A1%E5%90%8D%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%88%E5%AF%B9%E8%B1%A1%E5%90%8D%E5%90%8E%E5%8A%A0%E6%8B%AC%E5%8F%B7%E5%92%8C%E5%8F%82%E6%95%B0%EF%BC%89/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Sokäch&#39;s Blog">
+<meta property="og:url" content="http://yoursite.com/archives/2020/06/index.html">
 <meta property="og:site_name" content="Sokäch&#39;s Blog">
-<meta property="og:description" content="提前一周写完软件构造实验，hhh，打算把python捡一捡然后网上一个例子给看懵了 model &#x3D; MNIST()  # 声明一个对象 a &#x3D; model(b)     # 用对象去调用方法????????小朋友你是不是有很多问号？">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/images/python.jpg">
-<meta property="article:published_time" content="2020-04-08T12:09:21.000Z">
-<meta property="article:modified_time" content="2020-04-08T12:44:32.170Z">
+<meta property="og:image" content="http://yoursite.com/images/og_image.png">
 <meta property="article:author" content="wsl">
-<meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/images/python.jpg">
+<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
 
 
@@ -82,7 +77,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Python通过对象名调用方法（对象名后加括号和参数）" height="28">
+                <img src="/images/logo.svg" alt="Sokäch&#39;s Blog" height="28">
             
             </a>
         </div>
@@ -131,135 +126,42 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-6-tablet is-6-desktop is-9-widescreen has-order-2 column-main">
-<div class="card">
-    
-    <div class="card-image">
-        <span  class="image is-7by1">
-            <img class="thumbnail" src="/images/python.jpg" alt="Python通过对象名调用方法（对象名后加括号和参数）">
-        </span>
-    </div>
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-04-08T12:09:21.000Z">2020-04-08</time>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    2 minutes read (About 351 words)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                Python通过对象名调用方法（对象名后加括号和参数）
-            
-        </h1>
-        <div class="content">
-            <p>提前一周写完软件构造实验，hhh，打算把python捡一捡<br>然后网上一个例子给看懵了</p>
-<pre><code>model = MNIST()  # 声明一个对象
-a = model(b)     # 用对象去调用方法????????</code></pre><p>小朋友你是不是有很多问号？</p>
-<a id="more"></a>
-<p>一顿搜索<br>发现其实原因就在于这个类实现了<strong>call</strong>()方法</p>
-<h3 id="可调用对象"><a href="#可调用对象" class="headerlink" title="可调用对象"></a>可调用对象</h3><p>可调用对象（callable），我们平时自定义的函数、内置函数和类都属于可调用对象，但凡是可以把一对括号()应用到某个对象身上都可称之为可调用对象，判断对象是否为可调用对象可以用函数 <code>callable</code></p>
-<p>如果在类中实现了 <code>__call__</code> 方法，那么实例对象也将成为一个可调用对象，</p>
-<p>举个栗子：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Entity</span>:</span></span><br><span class="line"><span class="string">'''调用实体来改变实体的位置。'''</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, size, x, y)</span>:</span></span><br><span class="line">    self.x, self.y = x, y</span><br><span class="line">    self.size = size</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, x, y)</span>:</span></span><br><span class="line">    <span class="string">'''改变实体的位置'''</span></span><br><span class="line">    self.x, self.y = x, y</span><br><span class="line"></span><br><span class="line">e = Entity(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>) // 创建实例</span><br><span class="line">e(<span class="number">4</span>, <span class="number">5</span>) //实例可以象函数那样执行，并传入x y值，修改对象的x y</span><br></pre></td></tr></table></figure>
-<p><code>e(4,5)</code>本质其实是<code>e.__call__(4,5)</code><br>所以</p>
-<p><code>__call__</code> 在那些类的实例经常改变状态的时候会非常有效。<br>更多厉害的用法可以参考<a href="https://www.jianshu.com/p/e1d95c4e1697">Python <strong>call</strong>详解</a></p>
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
 
-        </div>
-        
-        <div class="level is-size-7 is-uppercase">
-            <div class="level-start">
-                <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/python/" rel="tag">python</a>
-                </div>
-            </div>
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-<div class="card">
+<div class="card widget">
     <div class="card-content">
-        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
-        <div class="buttons is-centered">
-            
+        <h3 class="tag is-link">
+        June 2020
+        </h3>
+        <div class="timeline">
+        
+            <article class="media">
                 
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
-
-<div class="notification is-danger">
-    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                
-<div class="notification is-danger">
-    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
-</div>
-
-                
+                <div class="media-content">
+                    <div class="content">
+                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-06-09T14:11:02.000Z">2020-06-09</time>
+                        <a href="/2020/06/09/%E8%BD%AF%E4%BB%B6%E6%9E%84%E9%80%A0%E5%A4%8D%E4%B9%A0%E8%A6%81%E7%82%B9%EF%BC%88%E4%B8%80%EF%BC%89/" class="title has-link-black-ter is-size-6 has-text-weight-normal">软件构造复习要点（一）</a>
+                        <div class="level article-meta is-mobile">
+                            <div class="level-left">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        
         </div>
     </div>
 </div>
 
 
-
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/04/24/java%E7%88%B6%E7%B1%BB%E5%AD%90%E7%B1%BB%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">java父类子类初始化顺序</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/03/20/java%E5%85%B3%E4%BA%8E%E9%9B%86%E5%90%88%E7%B1%BB%E7%9A%84%E4%B8%80%E7%82%B9%E7%82%B9%E6%8E%A2%E7%B4%A2/">
-                <span class="level-item">java关于集合类的一点点探索</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
-
-
 </div>
                 
 
 
 
 
-
-
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-3 column-left is-sticky">
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
     
         
 <div class="card widget">
@@ -497,7 +399,84 @@ a = model(b)     # 用对象去调用方法????????</code></pre><p>小朋友你�
     
 </div>
 
+
+
                 
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right is-sticky">
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Tag Cloud
+        </h3>
+        <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 10px;">其他</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">工具学习</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" style="font-size: 10px;">数据结构与算法</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%9E%84%E9%80%A0/" style="font-size: 15px;">软件构造</a>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/05/">
+                <span class="level-start">
+                    <span class="level-item">May 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
 
 
             </div>
@@ -509,7 +488,7 @@ a = model(b)     # 用对象去调用方法????????</code></pre><p>小朋友你�
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Python通过对象名调用方法（对象名后加括号和参数）" height="28">
+                    <img src="/images/logo.svg" alt="Sokäch&#39;s Blog" height="28">
                 
                 </a>
                 <p class="is-size-7">

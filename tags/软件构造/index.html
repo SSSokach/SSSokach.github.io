@@ -7,23 +7,18 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Python通过对象名调用方法（对象名后加括号和参数） - Sokäch&#39;s Blog</title>
+<title>Tag: 软件构造 - Sokäch&#39;s Blog</title>
 
 
-    <meta name="description" content="提前一周写完软件构造实验，hhh，打算把python捡一捡然后网上一个例子给看懵了 model &#x3D; MNIST()  # 声明一个对象 a &#x3D; model(b)     # 用对象去调用方法????????小朋友你是不是有很多问号？">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Python通过对象名调用方法（对象名后加括号和参数）">
-<meta property="og:url" content="http://yoursite.com/2020/04/08/Python%E9%80%9A%E8%BF%87%E5%AF%B9%E8%B1%A1%E5%90%8D%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%88%E5%AF%B9%E8%B1%A1%E5%90%8D%E5%90%8E%E5%8A%A0%E6%8B%AC%E5%8F%B7%E5%92%8C%E5%8F%82%E6%95%B0%EF%BC%89/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Sokäch&#39;s Blog">
+<meta property="og:url" content="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E6%9E%84%E9%80%A0/index.html">
 <meta property="og:site_name" content="Sokäch&#39;s Blog">
-<meta property="og:description" content="提前一周写完软件构造实验，hhh，打算把python捡一捡然后网上一个例子给看懵了 model &#x3D; MNIST()  # 声明一个对象 a &#x3D; model(b)     # 用对象去调用方法????????小朋友你是不是有很多问号？">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/images/python.jpg">
-<meta property="article:published_time" content="2020-04-08T12:09:21.000Z">
-<meta property="article:modified_time" content="2020-04-08T12:44:32.170Z">
+<meta property="og:image" content="http://yoursite.com/images/og_image.png">
 <meta property="article:author" content="wsl">
-<meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/images/python.jpg">
+<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
 
 
@@ -82,7 +77,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Python通过对象名调用方法（对象名后加括号和参数）" height="28">
+                <img src="/images/logo.svg" alt="Sokäch&#39;s Blog" height="28">
             
             </a>
         </div>
@@ -131,26 +126,31 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-6-tablet is-6-desktop is-9-widescreen has-order-2 column-main">
-<div class="card">
-    
-    <div class="card-image">
-        <span  class="image is-7by1">
-            <img class="thumbnail" src="/images/python.jpg" alt="Python通过对象名调用方法（对象名后加括号和参数）">
-        </span>
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/tags">Tags</a></li>
+            <li class="is-active"><a href="#" aria-current="page">软件构造</a></li>
+        </ul>
+        </nav>
     </div>
+</div>
+
+    
+<div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-04-08T12:09:21.000Z">2020-04-08</time>
+                <time class="level-item has-text-grey" datetime="2020-06-09T14:11:02.000Z">2020-06-09</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    2 minutes read (About 351 words)
+                    8 minutes read (About 1161 words)
                 </span>
                 
                 
@@ -159,96 +159,178 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                Python通过对象名调用方法（对象名后加括号和参数）
+                <a class="has-link-black-ter" href="/2020/06/09/%E8%BD%AF%E4%BB%B6%E6%9E%84%E9%80%A0%E5%A4%8D%E4%B9%A0%E8%A6%81%E7%82%B9%EF%BC%88%E4%B8%80%EF%BC%89/">软件构造复习要点（一）</a>
             
         </h1>
         <div class="content">
-            <p>提前一周写完软件构造实验，hhh，打算把python捡一捡<br>然后网上一个例子给看懵了</p>
-<pre><code>model = MNIST()  # 声明一个对象
-a = model(b)     # 用对象去调用方法????????</code></pre><p>小朋友你是不是有很多问号？</p>
-<a id="more"></a>
-<p>一顿搜索<br>发现其实原因就在于这个类实现了<strong>call</strong>()方法</p>
-<h3 id="可调用对象"><a href="#可调用对象" class="headerlink" title="可调用对象"></a>可调用对象</h3><p>可调用对象（callable），我们平时自定义的函数、内置函数和类都属于可调用对象，但凡是可以把一对括号()应用到某个对象身上都可称之为可调用对象，判断对象是否为可调用对象可以用函数 <code>callable</code></p>
-<p>如果在类中实现了 <code>__call__</code> 方法，那么实例对象也将成为一个可调用对象，</p>
-<p>举个栗子：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Entity</span>:</span></span><br><span class="line"><span class="string">'''调用实体来改变实体的位置。'''</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, size, x, y)</span>:</span></span><br><span class="line">    self.x, self.y = x, y</span><br><span class="line">    self.size = size</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, x, y)</span>:</span></span><br><span class="line">    <span class="string">'''改变实体的位置'''</span></span><br><span class="line">    self.x, self.y = x, y</span><br><span class="line"></span><br><span class="line">e = Entity(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>) // 创建实例</span><br><span class="line">e(<span class="number">4</span>, <span class="number">5</span>) //实例可以象函数那样执行，并传入x y值，修改对象的x y</span><br></pre></td></tr></table></figure>
-<p><code>e(4,5)</code>本质其实是<code>e.__call__(4,5)</code><br>所以</p>
-<p><code>__call__</code> 在那些类的实例经常改变状态的时候会非常有效。<br>更多厉害的用法可以参考<a href="https://www.jianshu.com/p/e1d95c4e1697">Python <strong>call</strong>详解</a></p>
+            <h1 id="Five-key-quality-objectives-of-software-construction"><a href="#Five-key-quality-objectives-of-software-construction" class="headerlink" title="Five key quality objectives of software construction"></a>Five key quality objectives of software construction</h1><p> – Easy to understand: elegant and beautiful code / understandability</p>
+<p> – Ready for change: maintainability and adaptability</p>
+<p> – Cheap for develop: design for/with reuse: reusability</p>
+<p> – Safe from bugs: robustness</p>
+<p> – Efficient to run: performance</p>
+<h1 id="How-OOP-improves-quality"><a href="#How-OOP-improves-quality" class="headerlink" title="How OOP improves quality"></a>How OOP improves quality</h1><p>Correctness: encapsulation, decentralization</p>
+<p>Robustness: encapsulation, error handling </p>
+<p>Extendibility: encapsulation, information hiding </p>
+<p>Reusability: modularity, component, models, patterns </p>
+<p>Compatibility: standardized module and interface</p>
+<p>Portability: information hiding, abstraction </p>
+<p>Ease of use: GUI components, framework </p>
+<p>Efficiency: reusable components</p>
+<p>Timeliness: modeling, reuse</p>
+<p>Economy: reuse</p>
+<p>Functionality: extendibility</p>
+<h1 id="Static-Typing-vs-Dynamic-Typing"><a href="#Static-Typing-vs-Dynamic-Typing" class="headerlink" title="Static Typing vs. Dynamic Typing"></a>Static Typing vs. Dynamic Typing</h1><p>静态类型语言 – 在编译阶段进行类型检查</p>
+<p>动态类型语言 – 在运行阶段进行类型检查</p>
+<h1 id="Static-Checking-and-Dynamic-Checking"><a href="#Static-Checking-and-Dynamic-Checking" class="headerlink" title="Static Checking and Dynamic Checking"></a>Static Checking and Dynamic Checking</h1><p><strong>静态检查：关于“类型”的检查，不考虑值</strong></p>
+<p><strong>动态检查：关于“值”的检查</strong></p>
+<hr>
+<p>静态类型检查 &gt;&gt; 动态 &gt;&gt; 无检查</p>
+<p>静态类型检查：可在编译阶段发现错误，避 免了将错误带入到运行阶段，可提高程序正 确性/健壮性</p>
+<h2 id="Static-checking"><a href="#Static-checking" class="headerlink" title="Static checking"></a>Static checking</h2><p>Syntax errors 语法错误</p>
+<p>Wrong names 类名/函数名错误</p>
+<p>Wrong number of arguments 参数数目错误</p>
+<p>Wrong argument types 参数类型错误</p>
+<p>Wrong return types 返回值类型错误</p>
+<p><strong>补充：</strong>如果编译器无法确定final变量不会改变，就提示错误，这也是静态类型检查的一部分</p>
+<h2 id="Dynamic-checking"><a href="#Dynamic-checking" class="headerlink" title="Dynamic checking"></a>Dynamic checking</h2><p>Illegal argument values 非法的参数值.  例如：除0</p>
+<p>Unpresentable return values 非法的返回值</p>
+<p>Out-of-range indexes 越界</p>
+<p>Calling a method on a null object reference. 空指针</p>
+<h1 id="Immutable-Wrappers"><a href="#Immutable-Wrappers" class="headerlink" title="Immutable Wrappers"></a>Immutable Wrappers</h1><p>– Collections.unmodifiableList </p>
+<p>– Collections.unmodifiableSet</p>
+<p>– Collections.unmodifiableMap</p>
+<p> 这种包装器得到的结果是不可变的：只能看</p>
+<p><strong>但是这种“不可变”是在运行阶段获得的，编译阶段 无法据此进行静态检查</strong></p>
+<p>所以如果对这种类型变量来 sort() ，java不会warn ，会在运行的时候报 exception</p>
+<h1 id="ADT"><a href="#ADT" class="headerlink" title="ADT"></a>ADT</h1><h2 id="Spec"><a href="#Spec" class="headerlink" title="Spec"></a>Spec</h2><p><strong>除非spec的后置条件中有说明，否则方法不应该修改输入参数</strong></p>
+<p>spec变强：更放松的前置条件+更严格的后置条件</p>
+<p>越强的规约，意味着implementer的自由度和责任越重，而client的 责任越轻。</p>
+<h3 id="Diagramming-specifications"><a href="#Diagramming-specifications" class="headerlink" title="Diagramming specifications"></a>Diagramming specifications</h3><p>某个具体实现， 若满足规约，则落在其范围内；否则，在其之外。</p>
+<p> <img src="https://i.loli.net/2020/06/10/LBUj46JKOctDhPw.png" alt="Diagramming specifications"></p>
+<p>更强的规约，表达为更小的区域</p>
+<p><img src="https://i.loli.net/2020/06/10/DAsOeEv62pF8rNJ.png" alt="QQ图片20200610214621"></p>
+<h2 id="ADT-operations"><a href="#ADT-operations" class="headerlink" title="ADT  operations"></a>ADT  operations</h2><p>creator : t* → T </p>
+<p>producer : T+, t* → T </p>
+<p>observer : T+, t* → t </p>
+<p>mutator : T+, t* → void | t | T</p>
+<p>注：</p>
+<p>Each T is the abstract type itself</p>
+<p>Each t is some other type. </p>
+<p>举例：</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Integer.valueOf()</td>
+<td>Creator</td>
+</tr>
+<tr>
+<td>String.toUpperCase()</td>
+<td>Producer</td>
+</tr>
+<tr>
+<td><strong>BufferedReader.readLine()</strong></td>
+<td><strong>Mutator</strong> ！！！</td>
+</tr>
+<tr>
+<td><strong>Map.keySet()</strong></td>
+<td><strong>Observer</strong> ！！！</td>
+</tr>
+</tbody></table>
+<h2 id="how-to-establish-invariants"><a href="#how-to-establish-invariants" class="headerlink" title="how to establish invariants"></a>how to establish invariants</h2><p>established by creators and producers(创建要合法，checkRep)</p>
+<p>preserved by mutator and observers(修改要合法，checkRep)</p>
+<p>no representation exposure occurs (没有表示暴漏)</p>
+<h2 id="Override-amp-Overload"><a href="#Override-amp-Overload" class="headerlink" title="Override &amp; Overload"></a>Override &amp; Overload</h2><p><strong>重写(Override)</strong><br>即外壳不变，核心重写！<br><strong>重载(Overload)</strong><br>方法名字相同，而参数不同,</p>
+<p>相同/不同的返回值类型</p>
+<p>相同/不同的public/private/protected</p>
+<p><strong>区别：</strong><br>Override 在运行阶段时决定执行哪个方法 (dynamic type checking)<br>Overload 在编译阶段时决定执行哪个方法 (static type checking)</p>
+<h2 id="Equality-of-ADT"><a href="#Equality-of-ADT" class="headerlink" title="Equality of ADT"></a>Equality of ADT</h2><h3 id="Equality-of-Immutable-Types"><a href="#Equality-of-Immutable-Types" class="headerlink" title="Equality of Immutable Types"></a>Equality of Immutable Types</h3><p>看AF： AF映射到同样的结果，则等价</p>
+<p>看observation：站在外部观察者角度，对两个对象调用任何相同的操作，都会得到相同的结果，则认为这 两个对象是等价的。</p>
+<p>观察等价性和行为等价性对Immutable Types来说等价</p>
+<h3 id="Equality-of-mutable-Types"><a href="#Equality-of-mutable-Types" class="headerlink" title="Equality of mutable Types"></a>Equality of mutable Types</h3><p>行为等价性：调用对象的任何方法都展示出一致的结果（很严格）；接近于==；object的equals就是按照行为等价性</p>
+<p><strong>java中 set实现观察等价性</strong></p>
+<h3 id="Equality-contract"><a href="#Equality-contract" class="headerlink" title="Equality contract"></a>Equality contract</h3><p>用“是否为等价关系”检验你的equals()是否正确，如下：</p>
+<p>Reflexive – every object is equal to itself </p>
+<p>Symmetric – if a.equals(b) then b.equals(a) </p>
+<p>Transitive – if a.equals(b) and b.equals(c), then a.equals(c) </p>
+<p>Consistent– equal objects stay equal unless mutated </p>
+<p>“Non-null” – a.equals(null) returns false</p>
+<h3 id="hashcode-contract"><a href="#hashcode-contract" class="headerlink" title="hashcode contract"></a>hashcode contract</h3><p>等价的对象，hashCode()必须相同</p>
+<h3 id="So"><a href="#So" class="headerlink" title="So"></a>So</h3><p><strong>So immutable types must override both equals() and hashCode() .</strong></p>
+<p><strong>So mutable types should not override equals() and hashCode() at all,</strong> </p>
+<h3 id="Autoboxing-and-Equality"><a href="#Autoboxing-and-Equality" class="headerlink" title="Autoboxing and Equality"></a>Autoboxing and Equality</h3><p>观察下面现象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String,Integer&gt; a=<span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">Map&lt;String,Integer&gt; b=<span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">a.put(<span class="string">"c"</span>, <span class="number">1</span>);</span><br><span class="line">b.put(<span class="string">"c"</span>, <span class="number">1</span>);</span><br><span class="line">System.out.print(a.get(<span class="string">"c"</span>)==b.get(<span class="string">"c"</span>));</span><br><span class="line"></span><br><span class="line">result： <span class="keyword">true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String,Integer&gt; a=<span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">Map&lt;String,Integer&gt; b=<span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">a.put(<span class="string">"c"</span>, <span class="number">130</span>);</span><br><span class="line">b.put(<span class="string">"c"</span>, <span class="number">130</span>);</span><br><span class="line">System.out.print(a.get(<span class="string">"c"</span>)==b.get(<span class="string">"c"</span>));</span><br><span class="line"></span><br><span class="line">result： <span class="keyword">false</span></span><br></pre></td></tr></table></figure>
 
+<p>为什么！</p>
+<p><strong>-128~127，java内存中提前new好了，每次自动Autoboxing 的时候都去指向它们。</strong></p>
+<p>不是Autoboxing，当然不会这样</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String,Integer&gt; a=<span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">Map&lt;String,Integer&gt; b=<span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">a.put(<span class="string">"c"</span>, <span class="keyword">new</span> Integer(<span class="number">13</span>));</span><br><span class="line">b.put(<span class="string">"c"</span>, <span class="keyword">new</span> Integer(<span class="number">13</span>));</span><br><span class="line">System.out.print(a.get(<span class="string">"c"</span>)==b.get(<span class="string">"c"</span>));</span><br><span class="line"></span><br><span class="line">result： <span class="keyword">false</span></span><br></pre></td></tr></table></figure>
         </div>
         
-        <div class="level is-size-7 is-uppercase">
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-05-18T02:59:47.000Z">2020-05-18</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    11 minutes read (About 1585 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2020/05/18/%E5%8F%AF%E7%BB%B4%E6%8A%A4%E6%80%A7%E7%9A%84%E6%9E%84%E9%80%A0%E5%8E%9F%E7%90%86/">可维护性的构造原理</a>
+            
+        </h1>
+        <div class="content">
+            <p>SOLID 原则提供了五条指导思想，如果我们遵从它们的话， 将可以显著的提升我们软件可维护性。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/python/" rel="tag">python</a>
+                <a class="button is-size-7 is-light" href="/2020/05/18/%E5%8F%AF%E7%BB%B4%E6%8A%A4%E6%80%A7%E7%9A%84%E6%9E%84%E9%80%A0%E5%8E%9F%E7%90%86/#more">Read More</a>
                 </div>
             </div>
         </div>
         
         
-        
     </div>
 </div>
 
 
 
-<div class="card">
-    <div class="card-content">
-        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
-        <div class="buttons is-centered">
-            
-                
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
-
-<div class="notification is-danger">
-    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                
-<div class="notification is-danger">
-    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-        </div>
-    </div>
-</div>
 
 
 
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/04/24/java%E7%88%B6%E7%B1%BB%E5%AD%90%E7%B1%BB%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">java父类子类初始化顺序</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/03/20/java%E5%85%B3%E4%BA%8E%E9%9B%86%E5%90%88%E7%B1%BB%E7%9A%84%E4%B8%80%E7%82%B9%E7%82%B9%E6%8E%A2%E7%B4%A2/">
-                <span class="level-item">java关于集合类的一点点探索</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
 
 
 </div>
@@ -257,9 +339,7 @@ a = model(b)     # 用对象去调用方法????????</code></pre><p>小朋友你�
 
 
 
-
-
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-3 column-left is-sticky">
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
     
         
 <div class="card widget">
@@ -497,7 +577,84 @@ a = model(b)     # 用对象去调用方法????????</code></pre><p>小朋友你�
     
 </div>
 
+
+
                 
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right is-sticky">
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Tag Cloud
+        </h3>
+        <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 10px;">其他</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">工具学习</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" style="font-size: 10px;">数据结构与算法</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%9E%84%E9%80%A0/" style="font-size: 15px;">软件构造</a>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/05/">
+                <span class="level-start">
+                    <span class="level-item">May 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
 
 
             </div>
@@ -509,7 +666,7 @@ a = model(b)     # 用对象去调用方法????????</code></pre><p>小朋友你�
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Python通过对象名调用方法（对象名后加括号和参数）" height="28">
+                    <img src="/images/logo.svg" alt="Sokäch&#39;s Blog" height="28">
                 
                 </a>
                 <p class="is-size-7">

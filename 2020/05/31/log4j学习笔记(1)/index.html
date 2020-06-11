@@ -19,7 +19,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
 <meta property="article:published_time" content="2020-05-31T08:49:47.000Z">
-<meta property="article:modified_time" content="2020-05-31T12:35:54.230Z">
+<meta property="article:modified_time" content="2020-05-31T14:54:51.311Z">
 <meta property="article:author" content="wsl">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -144,7 +144,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    10 minutes read (About 1474 words)
+                    10 minutes read (About 1479 words)
                 </span>
                 
                 
@@ -221,7 +221,7 @@
 <td>这是最高等级，为了关闭日志记录</td>
 </tr>
 </tbody></table>
-<h4 id="ConversionPattern参数的格式含义"><a href="#ConversionPattern参数的格式含义" class="headerlink" title="ConversionPattern参数的格式含义"></a>ConversionPattern参数的格式含义</h4><p><code>log4j.appender.logFile.layout.ConversionPattern=%d %p [%c] - &lt;%m&gt;%n</code><br>%c 输出日志信息所属的类的全名<br>%d 输出日志时间点的日期或时间，默认格式为ISO8601，也可以在其后指定格式，比如：%d{yyy-MM-dd HH:mm:ss }，输出类似：2002-10-18- 22：10：28<br>%f 输出日志信息所属的类的类名<br>%l 输出日志事件的发生位置，即输出日志信息的语句处于它所在的类的第几行<br>%m 输出代码中指定的信息，如log(message)中的message<br>%n 输出一个回车换行符，Windows平台为“rn”，Unix平台为“n”<br>%p 输出优先级，即DEBUG，INFO，WARN，ERROR，FATAL。如果是调用debug()输出的，则为DEBUG，依此类推<br>%r 输出自应用启动到输出该日志信息所耗费的毫秒数<br>%t 输出产生该日志事件的线程名</p>
+<h4 id="ConversionPattern参数的格式含义"><a href="#ConversionPattern参数的格式含义" class="headerlink" title="ConversionPattern参数的格式含义"></a>ConversionPattern参数的格式含义</h4><p><code>log4j.appender.logFile.layout.ConversionPattern=%d %p [%c] - &lt;%m&gt;%n</code><br>%c 输出日志信息所属的类的全名<br>%d (datetime)输出日志时间点的日期或时间，默认格式为ISO8601，也可以在其后指定格式，比如：%d{yyy-MM-dd HH:mm:ss }，输出类似：2002-10-18- 22：10：28<br>%F 输出日志信息所属的类的类名<br>%L 输出日志事件的发生位置，即输出日志信息的语句处于它所在的类的第几行<br>%m 输出代码中指定的信息，如log(message)中的message<br>%n(new line) 输出一个回车换行符，Windows平台为“rn”，Unix平台为“n”<br>%p (priority) 输出优先级，即DEBUG，INFO，WARN，ERROR，FATAL。如果是调用debug()输出的，则为DEBUG，依此类推<br>%r (runtime) 输出自应用启动到输出该日志信息所耗费的毫秒数<br>%t 输出产生该日志事件的线程名</p>
 <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>使用起来可以说是简单了</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//initLog(); //手动配置</span></span><br><span class="line">		Logger logger=LogManager.getLogger(Mylog<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">		</span><br><span class="line">		logger.info(<span class="string">"info"</span>);</span><br><span class="line">		logger.warn(<span class="string">"warning"</span>);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 
@@ -286,6 +286,13 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/06/09/%E8%BD%AF%E4%BB%B6%E6%9E%84%E9%80%A0%E5%A4%8D%E4%B9%A0%E8%A6%81%E7%82%B9%EF%BC%88%E4%B8%80%EF%BC%89/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">软件构造复习要点（一）</span>
+            </a>
+        </div>
+        
         
         <div class="level-end">
             <a class="level level-item has-link-grey  article-nav-next" href="/2020/05/23/Donald%20Knuth%20-%20My%20advice%20to%20young%20people/">
@@ -341,7 +348,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            14
+                            15
                         </p>
                     </a>
                 </div>
@@ -365,7 +372,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            7
+                            8
                         </p>
                     </a>
                 </div>
@@ -446,16 +453,23 @@
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/%E6%9E%84%E9%80%A0%E5%8E%9F%E7%90%86/">
-                        <span class="tag">构造原理</span>
+                    <a class="tags has-addons" href="/tags/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/">
+                        <span class="tag">工具学习</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="tag">算法</span>
+                    <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
+                        <span class="tag">数据结构与算法</span>
                         <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E8%BD%AF%E4%BB%B6%E6%9E%84%E9%80%A0/">
+                        <span class="tag">软件构造</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -472,7 +486,7 @@
         <h3 class="menu-label">
             Tag Cloud
         </h3>
-        <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 10px;">其他</a> <a href="/tags/%E6%9E%84%E9%80%A0%E5%8E%9F%E7%90%86/" style="font-size: 10px;">构造原理</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a>
+        <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 10px;">其他</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">工具学习</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" style="font-size: 10px;">数据结构与算法</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%9E%84%E9%80%A0/" style="font-size: 15px;">软件构造</a>
     </div>
 </div>
         
@@ -483,6 +497,17 @@
             Archives
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2020/05/">
