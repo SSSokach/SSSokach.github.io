@@ -163,117 +163,17 @@
             
         </h1>
         <div class="content">
-            <a id="more"></a>
-
-<h1 id="Five-key-quality-objectives-of-software-construction"><a href="#Five-key-quality-objectives-of-software-construction" class="headerlink" title="Five key quality objectives of software construction"></a>Five key quality objectives of software construction</h1><p> – Easy to understand: elegant and beautiful code / understandability</p>
-<p> – Ready for change: maintainability and adaptability</p>
-<p> – Cheap for develop: design for/with reuse: reusability</p>
-<p> – Safe from bugs: robustness</p>
-<p> – Efficient to run: performance</p>
-<h1 id="How-OOP-improves-quality"><a href="#How-OOP-improves-quality" class="headerlink" title="How OOP improves quality"></a>How OOP improves quality</h1><p>Correctness: encapsulation, decentralization</p>
-<p>Robustness: encapsulation, error handling </p>
-<p>Extendibility: encapsulation, information hiding </p>
-<p>Reusability: modularity, component, models, patterns </p>
-<p>Compatibility: standardized module and interface</p>
-<p>Portability: information hiding, abstraction </p>
-<p>Ease of use: GUI components, framework </p>
-<p>Efficiency: reusable components</p>
-<p>Timeliness: modeling, reuse</p>
-<p>Economy: reuse</p>
-<p>Functionality: extendibility</p>
-<h1 id="Static-Typing-vs-Dynamic-Typing"><a href="#Static-Typing-vs-Dynamic-Typing" class="headerlink" title="Static Typing vs. Dynamic Typing"></a>Static Typing vs. Dynamic Typing</h1><p>静态类型语言 – 在编译阶段进行类型检查</p>
-<p>动态类型语言 – 在运行阶段进行类型检查</p>
-<h1 id="Static-Checking-and-Dynamic-Checking"><a href="#Static-Checking-and-Dynamic-Checking" class="headerlink" title="Static Checking and Dynamic Checking"></a>Static Checking and Dynamic Checking</h1><p><strong>静态检查：关于“类型”的检查，不考虑值</strong></p>
-<p><strong>动态检查：关于“值”的检查</strong></p>
-<hr>
-<p>静态类型检查 &gt;&gt; 动态 &gt;&gt; 无检查</p>
-<p>静态类型检查：可在编译阶段发现错误，避 免了将错误带入到运行阶段，可提高程序正 确性/健壮性</p>
-<h2 id="Static-checking"><a href="#Static-checking" class="headerlink" title="Static checking"></a>Static checking</h2><p>Syntax errors 语法错误</p>
-<p>Wrong names 类名/函数名错误</p>
-<p>Wrong number of arguments 参数数目错误</p>
-<p>Wrong argument types 参数类型错误</p>
-<p>Wrong return types 返回值类型错误</p>
-<p><strong>补充：</strong>如果编译器无法确定final变量不会改变，就提示错误，这也是静态类型检查的一部分</p>
-<h2 id="Dynamic-checking"><a href="#Dynamic-checking" class="headerlink" title="Dynamic checking"></a>Dynamic checking</h2><p>Illegal argument values 非法的参数值.  例如：除0</p>
-<p>Unpresentable return values 非法的返回值</p>
-<p>Out-of-range indexes 越界</p>
-<p>Calling a method on a null object reference. 空指针</p>
-<h1 id="Immutable-Wrappers"><a href="#Immutable-Wrappers" class="headerlink" title="Immutable Wrappers"></a>Immutable Wrappers</h1><p>– Collections.unmodifiableList </p>
-<p>– Collections.unmodifiableSet</p>
-<p>– Collections.unmodifiableMap</p>
-<p> 这种包装器得到的结果是不可变的：只能看</p>
-<p><strong>但是这种“不可变”是在运行阶段获得的，编译阶段 无法据此进行静态检查</strong></p>
-<p>所以如果对这种类型变量来 sort() ，java不会warn ，会在运行的时候报 exception</p>
-<h1 id="ADT"><a href="#ADT" class="headerlink" title="ADT"></a>ADT</h1><h2 id="Spec"><a href="#Spec" class="headerlink" title="Spec"></a>Spec</h2><p><strong>除非spec的后置条件中有说明，否则方法不应该修改输入参数</strong></p>
-<p>spec变强：更放松的前置条件+更严格的后置条件</p>
-<p>越强的规约，意味着implementer的自由度和责任越重，而client的 责任越轻。</p>
-<h3 id="Diagramming-specifications"><a href="#Diagramming-specifications" class="headerlink" title="Diagramming specifications"></a>Diagramming specifications</h3><p>某个具体实现， 若满足规约，则落在其范围内；否则，在其之外。</p>
-<p> <img src="https://i.loli.net/2020/06/10/LBUj46JKOctDhPw.png" alt="Diagramming specifications"></p>
-<p>更强的规约，表达为更小的区域</p>
-<p><img src="https://i.loli.net/2020/06/10/DAsOeEv62pF8rNJ.png" alt="QQ图片20200610214621"></p>
-<h2 id="ADT-operations"><a href="#ADT-operations" class="headerlink" title="ADT  operations"></a>ADT  operations</h2><p>creator : t* → T </p>
-<p>producer : T+, t* → T </p>
-<p>observer : T+, t* → t </p>
-<p>mutator : T+, t* → void | t | T</p>
-<p>注：</p>
-<p>Each T is the abstract type itself</p>
-<p>Each t is some other type. </p>
-<p>举例：</p>
-<table>
-<thead>
-<tr>
-<th>操作</th>
-<th>类型</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Integer.valueOf()</td>
-<td>Creator</td>
-</tr>
-<tr>
-<td>String.toUpperCase()</td>
-<td>Producer</td>
-</tr>
-<tr>
-<td><strong>BufferedReader.readLine()</strong></td>
-<td><strong>Mutator</strong> ！！！</td>
-</tr>
-<tr>
-<td><strong>Map.keySet()</strong></td>
-<td><strong>Observer</strong> ！！！</td>
-</tr>
-</tbody></table>
-<h2 id="how-to-establish-invariants"><a href="#how-to-establish-invariants" class="headerlink" title="how to establish invariants"></a>how to establish invariants</h2><p>established by creators and producers(创建要合法，checkRep)</p>
-<p>preserved by mutator and observers(修改要合法，checkRep)</p>
-<p>no representation exposure occurs (没有表示暴漏)</p>
-<h2 id="Override-amp-Overload"><a href="#Override-amp-Overload" class="headerlink" title="Override &amp; Overload"></a>Override &amp; Overload</h2><p><strong>重写(Override)</strong><br>即外壳不变，核心重写！<br><strong>重载(Overload)</strong><br>方法名字相同，而参数不同,</p>
-<p>相同/不同的返回值类型</p>
-<p>相同/不同的public/private/protected</p>
-<p><strong>区别：</strong><br>Override 在运行阶段时决定执行哪个方法 (dynamic type checking)<br>Overload 在编译阶段时决定执行哪个方法 (static type checking)</p>
-<h2 id="Equality-of-ADT"><a href="#Equality-of-ADT" class="headerlink" title="Equality of ADT"></a>Equality of ADT</h2><h3 id="Equality-of-Immutable-Types"><a href="#Equality-of-Immutable-Types" class="headerlink" title="Equality of Immutable Types"></a>Equality of Immutable Types</h3><p>看AF： AF映射到同样的结果，则等价</p>
-<p>看observation：站在外部观察者角度，对两个对象调用任何相同的操作，都会得到相同的结果，则认为这 两个对象是等价的。</p>
-<p>观察等价性和行为等价性对Immutable Types来说等价</p>
-<h3 id="Equality-of-mutable-Types"><a href="#Equality-of-mutable-Types" class="headerlink" title="Equality of mutable Types"></a>Equality of mutable Types</h3><p>行为等价性：调用对象的任何方法都展示出一致的结果（很严格）；接近于==；object的equals就是按照行为等价性</p>
-<p><strong>java中 set实现观察等价性</strong></p>
-<h3 id="Equality-contract"><a href="#Equality-contract" class="headerlink" title="Equality contract"></a>Equality contract</h3><p>用“是否为等价关系”检验你的equals()是否正确，如下：</p>
-<p>Reflexive – every object is equal to itself </p>
-<p>Symmetric – if a.equals(b) then b.equals(a) </p>
-<p>Transitive – if a.equals(b) and b.equals(c), then a.equals(c) </p>
-<p>Consistent– equal objects stay equal unless mutated </p>
-<p>“Non-null” – a.equals(null) returns false</p>
-<h3 id="hashcode-contract"><a href="#hashcode-contract" class="headerlink" title="hashcode contract"></a>hashcode contract</h3><p>等价的对象，hashCode()必须相同</p>
-<h3 id="So"><a href="#So" class="headerlink" title="So"></a>So</h3><p><strong>So immutable types must override both equals() and hashCode() .</strong></p>
-<p><strong>So mutable types should not override equals() and hashCode() at all,</strong> </p>
-<h3 id="Autoboxing-and-Equality"><a href="#Autoboxing-and-Equality" class="headerlink" title="Autoboxing and Equality"></a>Autoboxing and Equality</h3><p>观察下面现象</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String,Integer&gt; a=<span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">Map&lt;String,Integer&gt; b=<span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">a.put(<span class="string">"c"</span>, <span class="number">1</span>);</span><br><span class="line">b.put(<span class="string">"c"</span>, <span class="number">1</span>);</span><br><span class="line">System.out.print(a.get(<span class="string">"c"</span>)==b.get(<span class="string">"c"</span>));</span><br><span class="line"></span><br><span class="line">result： <span class="keyword">true</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String,Integer&gt; a=<span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">Map&lt;String,Integer&gt; b=<span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">a.put(<span class="string">"c"</span>, <span class="number">130</span>);</span><br><span class="line">b.put(<span class="string">"c"</span>, <span class="number">130</span>);</span><br><span class="line">System.out.print(a.get(<span class="string">"c"</span>)==b.get(<span class="string">"c"</span>));</span><br><span class="line"></span><br><span class="line">result： <span class="keyword">false</span></span><br></pre></td></tr></table></figure>
-
-<p>为什么！</p>
-<p><strong>-128~127，java内存中提前new好了，每次自动Autoboxing 的时候都去指向它们。</strong></p>
-<p>不是Autoboxing，当然不会这样</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String,Integer&gt; a=<span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">Map&lt;String,Integer&gt; b=<span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">a.put(<span class="string">"c"</span>, <span class="keyword">new</span> Integer(<span class="number">13</span>));</span><br><span class="line">b.put(<span class="string">"c"</span>, <span class="keyword">new</span> Integer(<span class="number">13</span>));</span><br><span class="line">System.out.print(a.get(<span class="string">"c"</span>)==b.get(<span class="string">"c"</span>));</span><br><span class="line"></span><br><span class="line">result： <span class="keyword">false</span></span><br></pre></td></tr></table></figure>
+            <p>1,2,3章</p>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2020/06/09/%E8%BD%AF%E4%BB%B6%E6%9E%84%E9%80%A0%E5%A4%8D%E4%B9%A0%E8%A6%81%E7%82%B9%EF%BC%88%E4%B8%80%EF%BC%89/#more">Read More</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
