@@ -10,16 +10,16 @@
 <title>软件构造复习要点（二） - Sokäch&#39;s Blog</title>
 
 
-    <meta name="description" content="4，5，6，7章">
+    <meta name="description" content="第4章 可复用性 第5章 可维护性">
 <meta property="og:type" content="article">
 <meta property="og:title" content="软件构造复习要点（二）">
 <meta property="og:url" content="http://yoursite.com/2020/06/12/%E8%BD%AF%E4%BB%B6%E6%9E%84%E9%80%A0%E5%A4%8D%E4%B9%A0%E8%A6%81%E7%82%B9%EF%BC%88%E4%BA%8C%EF%BC%89/index.html">
 <meta property="og:site_name" content="Sokäch&#39;s Blog">
-<meta property="og:description" content="4，5，6，7章">
+<meta property="og:description" content="第4章 可复用性 第5章 可维护性">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
 <meta property="article:published_time" content="2020-06-12T04:11:02.000Z">
-<meta property="article:modified_time" content="2020-06-23T02:46:14.635Z">
+<meta property="article:modified_time" content="2020-07-09T11:46:59.286Z">
 <meta property="article:author" content="wsl">
 <meta property="article:tag" content="软件构造">
 <meta name="twitter:card" content="summary">
@@ -144,7 +144,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    18 minutes read (About 2738 words)
+                    20 minutes read (About 3037 words)
                 </span>
                 
                 
@@ -157,7 +157,8 @@
             
         </h1>
         <div class="content">
-            <p>4，5，6，7章</p>
+            <p>第4章 可复用性</p>
+<p>第5章 可维护性</p>
 <a id="more"></a>
 
 <!-- TOC -->
@@ -200,17 +201,17 @@
 </ul>
 </li>
 <li><a href="#design-patterns-for-reuse">Design Patterns for Reuse</a><ul>
-<li><a href="#structural-patterns"><strong>Structural patterns</strong></a><ul>
-<li><a href="#adapter"><strong>Adapter</strong></a></li>
-<li><a href="#decorator"><strong>Decorator</strong></a></li>
+<li><a href="#structural-patterns">Structural patterns</a><ul>
+<li><a href="#adapter">Adapter</a></li>
+<li><a href="#decorator">Decorator</a></li>
 <li><a href="#adapter和decorator的关系">Adapter和Decorator的关系</a></li>
-<li><a href="#facade"><strong>Facade</strong></a></li>
+<li><a href="#facade">Facade</a></li>
 </ul>
 </li>
-<li><a href="#behavioral-patterns"><strong>Behavioral patterns</strong></a><ul>
-<li><a href="#strategy"><strong>Strategy</strong></a></li>
-<li><a href="#template"><strong>Template</strong></a></li>
-<li><a href="#iterator"><strong>Iterator</strong></a></li>
+<li><a href="#behavioral-patterns">Behavioral patterns</a><ul>
+<li><a href="#strategy">Strategy</a></li>
+<li><a href="#template">Template</a></li>
+<li><a href="#iterator">Iterator</a></li>
 </ul>
 </li>
 </ul>
@@ -278,9 +279,9 @@
 <h2 id="Types-of-delegation"><a href="#Types-of-delegation" class="headerlink" title="Types of delegation"></a>Types of delegation</h2><h3 id="Dependency：临时性的delegation"><a href="#Dependency：临时性的delegation" class="headerlink" title="Dependency：临时性的delegation"></a>Dependency：临时性的delegation</h3><p><img src="https://i.loli.net/2020/06/13/RAb327WZJUo4Ffz.png" alt="Dependency"></p>
 <h3 id="Association-永久性的delegation"><a href="#Association-永久性的delegation" class="headerlink" title="Association: 永久性的delegation"></a>Association: 永久性的delegation</h3><h4 id="Composition（组合）：更强的association，但难以变化"><a href="#Composition（组合）：更强的association，但难以变化" class="headerlink" title="Composition（组合）：更强的association，但难以变化"></a>Composition（组合）：更强的association，但难以变化</h4><p><img src="https://i.loli.net/2020/06/13/xTW2l71ImZd5tMB.png" alt="Composition"></p>
 <h4 id="Aggregation（聚合）-更弱的association，可动态变化"><a href="#Aggregation（聚合）-更弱的association，可动态变化" class="headerlink" title="Aggregation（聚合）: 更弱的association，可动态变化"></a>Aggregation（聚合）: 更弱的association，可动态变化</h4><p><img src="https://i.loli.net/2020/06/13/q7lkO2r94ztxb1F.png" alt="Aggregation"></p>
-<h1 id="Design-Patterns-for-Reuse"><a href="#Design-Patterns-for-Reuse" class="headerlink" title="Design Patterns for Reuse"></a>Design Patterns for Reuse</h1><h2 id="Structural-patterns"><a href="#Structural-patterns" class="headerlink" title="Structural patterns"></a><strong>Structural patterns</strong></h2><h3 id="Adapter"><a href="#Adapter" class="headerlink" title="Adapter"></a><strong>Adapter</strong></h3><p>将某个类/接口转换为client期望的其他形式</p>
+<h1 id="Design-Patterns-for-Reuse"><a href="#Design-Patterns-for-Reuse" class="headerlink" title="Design Patterns for Reuse"></a>Design Patterns for Reuse</h1><h2 id="Structural-patterns"><a href="#Structural-patterns" class="headerlink" title="Structural patterns"></a>Structural patterns</h2><h3 id="Adapter"><a href="#Adapter" class="headerlink" title="Adapter"></a>Adapter</h3><p>将某个类/接口转换为client期望的其他形式</p>
 <p><img src="https://i.loli.net/2020/06/18/5H7vGZbglQWieuK.png" alt="Adapter"></p>
-<h3 id="Decorator"><a href="#Decorator" class="headerlink" title="Decorator"></a><strong>Decorator</strong></h3><p>当需要<strong>特性的任意组合</strong>的时候，可以用<strong>装饰器模式</strong></p>
+<h3 id="Decorator"><a href="#Decorator" class="headerlink" title="Decorator"></a>Decorator</h3><p>当需要<strong>特性的任意组合</strong>的时候，可以用<strong>装饰器模式</strong></p>
 <p>subtyping + delegation</p>
 <p>抽象构件(Component)角色：给出一个抽象接口，以规范准备接收附加责任的对象。<br>具体构件(ConcreteComponent)角色：定义一个将要接收附加责任的类<br>装饰角色(Decorator)：持有一个构件(Component)对象的实例，并定义一个与抽象构件接口一致的接口<br>具体装饰角色(ConcreteDecorator)：负责给构件对象“贴上”附加的责任</p>
 <p><img src="https://i.loli.net/2020/06/18/sUyK2PDbkReJTdF.png" alt="Decorator"></p>
@@ -300,13 +301,13 @@
 <p>并且，装饰模式有透明和半透明两种，这两种的区别就在于装饰角色的接口与抽象构件角色的接口是否完全一致。</p>
 <p>透明的装饰模式也就是理想的装饰模式。半透明的装饰器模式如下图：</p>
 <p><img src="https://i.loli.net/2020/06/18/gC1tKGSYNVwF5OD.png" alt="透明，半透明，不透明"></p>
-<h3 id="Facade"><a href="#Facade" class="headerlink" title="Facade"></a><strong>Facade</strong></h3><p> 客户 端需要通过一个简化的接口来访问复杂系统内的功能</p>
-<h2 id="Behavioral-patterns"><a href="#Behavioral-patterns" class="headerlink" title="Behavioral patterns"></a><strong>Behavioral patterns</strong></h2><h3 id="Strategy"><a href="#Strategy" class="headerlink" title="Strategy"></a><strong>Strategy</strong></h3><p> 为不同的实现算 法构造抽象接口，利用delegation，运行时动态传入client倾向的算法 类实例</p>
+<h3 id="Facade"><a href="#Facade" class="headerlink" title="Facade"></a>Facade</h3><p> 客户 端需要通过一个简化的接口来访问复杂系统内的功能</p>
+<h2 id="Behavioral-patterns"><a href="#Behavioral-patterns" class="headerlink" title="Behavioral patterns"></a>Behavioral patterns</h2><h3 id="Strategy"><a href="#Strategy" class="headerlink" title="Strategy"></a>Strategy</h3><p> 为不同的实现算 法构造抽象接口，利用delegation，运行时动态传入client倾向的算法 类实例</p>
 <p><img src="https://i.loli.net/2020/06/18/GaVZoshBzRqjAxH.png" alt="Strategy"></p>
-<h3 id="Template"><a href="#Template" class="headerlink" title="Template"></a><strong>Template</strong></h3><p>共性的步骤在抽象类内公共实现，差 异化的步骤在各个子类中实现</p>
+<h3 id="Template"><a href="#Template" class="headerlink" title="Template"></a>Template</h3><p>共性的步骤在抽象类内公共实现，差 异化的步骤在各个子类中实现</p>
 <p> inheritance + overridable</p>
 <p><img src="https://i.loli.net/2020/06/18/p8ayfHAPEs2IYKo.png" alt="Template"></p>
-<h3 id="Iterator"><a href="#Iterator" class="headerlink" title="Iterator"></a><strong>Iterator</strong></h3><p>对放入集合类里的ADT提供统一的遍历方法</p>
+<h3 id="Iterator"><a href="#Iterator" class="headerlink" title="Iterator"></a>Iterator</h3><p>对放入集合类里的ADT提供统一的遍历方法</p>
 <p>Iterator 迭代器接口<br>ConcreateIterator 具体实现类<br>Aggregate 集合类接口<br>ConcreteAggregate 具体的集合类</p>
 <p><img src="https://i.loli.net/2020/06/18/kXBmFbxuvzgCZRJ.png" alt="Iterator"></p>
 <p>好处：</p>
@@ -314,8 +315,31 @@
 <p>不论具体集合类如何实现（数组or链表），下面的遍历代码都不用改动</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (iterator.hasNext()) &#123;</span><br><span class="line">    System.out.println(iterator.next().getName()); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-
+<h1 id="Modular-programming"><a href="#Modular-programming" class="headerlink" title="Modular programming"></a>Modular programming</h1><p>High cohesion within modules 高内聚</p>
+<p>Loose coupling between modules 低耦合</p>
+<p>Functions are assigned to modules in away that groups similar functions together (Separation of concerns) 分离关注点</p>
+<p>There are small, simple, well-defined interfaces between modules (Information hiding) 信息隐藏</p>
+<h2 id="Five-Criteria-for-Evaluating-Modularity"><a href="#Five-Criteria-for-Evaluating-Modularity" class="headerlink" title="Five Criteria for Evaluating Modularity"></a>Five Criteria for Evaluating Modularity</h2><p>Decomposability (可分解性)</p>
+<p>Composability (可组合性) </p>
+<p>Understandability (可理解性)</p>
+<p>Continuity (可持续性) ——发生变化时受影响范围最小</p>
+<p>Protection (出现异常之后的保护) ——出现异常后受影响范围最小</p>
+<h2 id="Five-Rules-of-Modularity-Design"><a href="#Five-Rules-of-Modularity-Design" class="headerlink" title="Five Rules of Modularity Design"></a>Five Rules of Modularity Design</h2><p>Direct Mapping (直接映射) </p>
+<p>Few Interfaces (尽可能少的接口)</p>
+<p>Small Interfaces (尽可能小的接口) </p>
+<p>Explicit Interfaces (显式接口)</p>
+<p>Information Hiding (信息隐藏)</p>
+<h2 id="Coupling-and-Cohesion（耦合与内聚）"><a href="#Coupling-and-Cohesion（耦合与内聚）" class="headerlink" title="Coupling and Cohesion（耦合与内聚）"></a>Coupling and Cohesion（耦合与内聚）</h2><p>举例：Coupling between HTML, CSS and JavaScript </p>
+<p>A well-designed web app modularizes around: </p>
+<p>– HTML files which specify data and semantics </p>
+<p>– CSS rules which specify the look and formatting of HTML data </p>
+<p>– JavaScript which defines behavior/interactivity of page</p>
+<h1 id="OO-Design-Principles-SOLID"><a href="#OO-Design-Principles-SOLID" class="headerlink" title="OO Design Principles: SOLID"></a>OO Design Principles: SOLID</h1><p>(SRP) The Single Responsibility Principle 单一责任原则</p>
+<p>(OCP) The Open-Closed Principle 开放-封闭原则</p>
+<p>(LSP) The Liskov Substitution Principle Liskov替换原则</p>
+<p>(DIP) The Dependency Inversion Principle 依赖转置原则</p>
+<p>(ISP) The Interface Segregation Principle 接口聚合原则</p>
+<p>具体介绍可以看我之前的博客——可维护性的软件构造原理</p>
 <p>未完待续。。。</p>
 <p>try-catch-finally</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">	&#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span></span><br><span class="line"><span class="function">   </span>&#123;</span><br><span class="line">   	System.out.print(test());</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
@@ -441,7 +465,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            18
+                            19
                         </p>
                     </a>
                 </div>
@@ -562,7 +586,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%E8%BD%AF%E4%BB%B6%E6%9E%84%E9%80%A0/">
                         <span class="tag">软件构造</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 
@@ -597,7 +621,7 @@
                     <span class="level-item">June 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">4</span>
+                    <span class="level-item tag">5</span>
                 </span>
             </a>
         </li>
