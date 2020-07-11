@@ -19,7 +19,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
 <meta property="article:published_time" content="2020-06-09T14:11:02.000Z">
-<meta property="article:modified_time" content="2020-06-23T03:07:58.777Z">
+<meta property="article:modified_time" content="2020-07-09T14:33:16.273Z">
 <meta property="article:author" content="wsl">
 <meta property="article:tag" content="软件构造">
 <meta name="twitter:card" content="summary">
@@ -144,7 +144,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    9 minutes read (About 1280 words)
+                    9 minutes read (About 1299 words)
                 </span>
                 
                 
@@ -284,7 +284,7 @@
 <p>看observation：站在外部观察者角度，对两个对象调用任何相同的操作，都会得到相同的结果，则认为这 两个对象是等价的。</p>
 <p>观察等价性和行为等价性对Immutable Types来说等价</p>
 <h3 id="Equality-of-mutable-Types"><a href="#Equality-of-mutable-Types" class="headerlink" title="Equality of mutable Types"></a>Equality of mutable Types</h3><p>行为等价性：调用对象的任何方法都展示出一致的结果（很严格）；接近于==；object的equals就是按照行为等价性</p>
-<p><strong>java中 set实现观察等价性</strong></p>
+<p><strong>java中 list,set实现观察等价性</strong>(只需要里面装的东西，属性相同，即等价)</p>
 <h3 id="Equality-contract"><a href="#Equality-contract" class="headerlink" title="Equality contract"></a>Equality contract</h3><p>用“是否为等价关系”检验你的equals()是否正确，如下：</p>
 <p>Reflexive – every object is equal to itself </p>
 <p>Symmetric – if a.equals(b) then b.equals(a) </p>
